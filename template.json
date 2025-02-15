@@ -1,10 +1,10 @@
 {
-	"Actor": {
-		"types": ["character", "monster"],
-		"templates": {}
-	},
-	"Item": {
-		"types": ["equipment"],
-		"templates": {}
-	}
+    "Actor": {
+        "types": ["character", "monster"],
+        "templates": {}
+    },
+    "Item": {
+        "types": ["consumable", "equipment", "card", "general", "artifacts"],
+        "templates": {}
+    }
 }

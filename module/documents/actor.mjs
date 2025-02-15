@@ -1,4 +1,4 @@
-import { getDieForAttribute } from "../helpers/attributesDice.mjs";
+import { getDieForAttribute } from '../helpers/attributesDice.mjs';
 
 export class EspersActor extends Actor {
     prepareData() {
@@ -7,11 +7,9 @@ export class EspersActor extends Actor {
         const data = this.system;
 
         for (const [key, attr] of Object.entries(data.attributes)) {
-            attr.die = getDieForAttribute(attr.value);
+            attr.dice = getDieForAttribute(attr.level);
         }
-    }
 
-    getAttributeDie(attribute) {
-        return this.system.attributes[attribute]?.die || "d4";
+        data.carryingCapacity = (data.attributes.strength?.level || 0) + 2;
     }
 }

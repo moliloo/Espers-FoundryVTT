@@ -2,7 +2,7 @@ import { espers } from '../helpers/config.mjs'
 
 export class EspersItemSheet extends ItemSheet {
   static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['espers', 'sheet', 'item'],
 			width: 400,
 			height: 400,
