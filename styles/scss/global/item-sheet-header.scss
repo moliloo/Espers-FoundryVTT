@@ -1,0 +1,54 @@
+@import '../utils/color.scss';
+
+.application.sheet.espers {
+    .item-sheet-header {
+        display: flex;
+        gap: 20px;
+
+        .image {
+            height: 125px;
+            width: 125px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            input {
+                font-size: 32px;
+                height: 42px;
+                text-align: center;
+                transition: all 0.3s ease;
+                outline: 2px solid transparent;
+                border: 1px solid transparent;
+
+                &:hover[type='text'],
+                &:focus[type='text'] {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .item-header-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 12px;
+            width: 60px;
+            text-align: center;
+
+            .tags {
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}

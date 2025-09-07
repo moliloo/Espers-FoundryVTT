@@ -1,23 +1,24 @@
-import { EspersActor } from './documents/actor.mjs';
-import { EspersItem } from './documents/item.mjs';
+// import { EspersActor } from './documents/actor.mjs';
+// import { EspersItem } from './documents/item.mjs';
 
-import { EspersCharacterSheet } from './sheets/actor/character-sheet.mjs';
-import { EspersMonsterSheet } from './sheets/actor/monster-sheet.mjs';
-import { EspersItemSheet } from './sheets/item-sheet.mjs';
+import { default as EspersCharacterSheet } from './sheets/actor/character-sheet.mjs';
+import { default as EspersMonsterSheet } from './sheets/actor/monster-sheet.mjs';
+import { default as EspersItemSheet } from './sheets/items/item-sheet.mjs';
+
+import * as sheets from './sheets/_module.mjs';
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { espers } from './helpers/config.mjs';
 
 import * as models from './data/_module.mjs';
-import { EspersCardSheet } from './sheets/card-sheet.mjs';
 
 Hooks.once('init', function () {
     console.log(espers.ascii);
-    console.log('Espers | Initializing your journey through the space');
+    console.log('Espers | Initializing your journey');
 
     game.espers = {
-        EspersActor,
-        EspersItem,
+        // EspersActor,
+        // EspersItem,
         EspersCharacterSheet,
         EspersMonsterSheet,
 
@@ -26,37 +27,38 @@ Hooks.once('init', function () {
 
     CONFIG.ESPERS = espers;
 
-    console.log(CONFIG);
-
-    CONFIG.Actor.documentClass = EspersActor;
-    CONFIG.Item.documentClass = EspersItem;
-    CONFIG.Item.entityClass = EspersItem;
+    // CONFIG.Actor.documentClass = EspersActor;
+    // CONFIG.Item.documentClass = EspersItem;
+    // CONFIG.Item.entityClass = EspersItem;
 
     CONFIG.Actor.dataModels = {
         character: models.EspersCharacter,
         monster: models.EspersMonster
     };
     CONFIG.Item.dataModels = {
+        artifacts: models.EspersItemBase,
+        consumable: models.EspersConsumable,
         equipment: models.EspersEquipment,
-        card: models.EspersCard
+        throwable: models.EspersThrowable
     };
 
-    Items.unregisterSheet('core', ItemSheet);
-    Items.registerSheet('espers', EspersItemSheet, { makeDefault: true });
-    Items.registerSheet('espers', EspersCardSheet, { types: ['card'], makeDefault: true });
+    const { Items, Actors } = foundry.documents.collections;
+    Items.unregisterSheet('core', foundry.appv1.sheets.ItemSheet);
+    Items.registerSheet('espers', sheets.EspersItemSheet, { makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersArtifactsSheet, { types: ['artifacts'], makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersConsumableSheet, { types: ['consumable'], makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersEquipmentSheet, { types: ['equipment'], makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersThrowable, { types: ['throwable'], makeDefault: true });
 
-    Actors.unregisterSheet('core', ActorSheet);
-    Actors.registerSheet('espers', EspersCharacterSheet, { types: ['character'], makeDefault: true });
-    Actors.registerSheet('espers', EspersMonsterSheet, { types: ['monster'], makeDefault: true });
-
-    Cards.registerSheet('espers', EspersCardsPile, { makeDefault: true });
+    Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
+    Actors.registerSheet('espers', sheets.EspersCharacterSheet, { types: ['character'], makeDefault: true });
+    Actors.registerSheet('espers', sheets.EspersMonsterSheet, { types: ['monster'], makeDefault: true });
 
     preloadHandlebarsTemplates();
 });
 
 Hooks.once('ready', function () {
     Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
-    console.log(game);
 });
 
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {

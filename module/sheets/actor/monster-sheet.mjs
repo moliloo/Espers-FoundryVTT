@@ -1,31 +1,23 @@
 import { espers } from '../../helpers/config.mjs';
 
-export class EspersMonsterSheet extends ActorSheet {
-    static get defaultOptions() {
-        return foundry.utils.mergeObject(super.defaultOptions, {
-            classes: ['espers', 'sheet', 'actor', 'monster'],
-            width: 400,
-            height: 300
-            // tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }]
-        });
+const { ActorSheetV2 } = foundry.applications.sheets;
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+
+export default class EspersMonsterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+    static DEFAULT_OPTIONS = {
+        tag: 'form',
+        classes: ['espers', 'sheet', 'actor', 'monster'],
+        position: { width: 400, height: 300 }
+    };
+
+    get title() {
+        return this.actor.name;
     }
 
-    get template() {
-        return `systems/espers/templates/actors/monster/monster-sheet.hbs`;
-    }
-
-    getData() {
-        const context = super.getData();
-        const actorData = context.data;
-
-        context.system = actorData.system;
-        context.config = CONFIG.ESPERS;
-        context.rollData = context.actor.getRollData();
-
-        // context.effects = this.prepareActiveEffectCategories(this.actor.effects)
-
-        // this._prepareItems(context)
-
-        return context;
-    }
+    static PARTS = {
+        form: {
+            id: 'form',
+            template: 'systems/espers/templates/sheets/actors/monster/monster-sheet.hbs'
+        }
+    };
 }

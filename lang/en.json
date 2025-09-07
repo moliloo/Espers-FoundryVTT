@@ -1,5 +1,41 @@
 {
-  "ESPERS" : {
-    "name": "name"
-  }
+    "TYPES": {
+        "Actor": {
+            "character": "Character",
+            "monster": "Monster"
+        },
+        "Item": {
+            "artifacts": "Artifacts",
+            "consumable": "Consumable",
+            "equipment": "Equipment",
+            "general": "General",
+            "throwable": "Throwable"
+        }
+    },
+    "ESPERS": {
+        "name": "name",
+        "ActiveEffect": {
+            "temporary": "Temporary",
+            "passive": "Passive",
+            "inactive": "Inactive"
+        },
+        "Item": {
+            "tabs": {
+                "description": "Description",
+                "settings": "Settings",
+                "effects": "Effects"
+            },
+            "rarity": {
+                "common": "Common",
+                "uncommon": "Uncommon",
+                "rare": "Rare",
+                "legend": "Legend"
+            }
+        },
+        "Tooltip": {
+            "size": "Size",
+            "price": "Price",
+            "quantity": "Quantity"
+        }
+    }
 }

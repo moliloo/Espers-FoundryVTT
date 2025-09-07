@@ -1,0 +1,88 @@
+.application.sheet.espers .window-header {
+  background: #d9ab42;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.3);
+}
+.application.sheet.espers .window-header .window-title,
+.application.sheet.espers .window-header button {
+  color: #202020;
+}
+
+.theme-dark .application.sheet.espers {
+  background-image: url("../../assets/images/background/dark-parchment.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.theme-light .application.sheet.espers {
+  background-image: url("../../assets/images/background/light-parchment.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.application.sheet.espers input[type=text],
+.application.sheet.espers input[type=number] {
+  background: light-dark(transparent, transparent);
+  border-radius: 6px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(9.5px);
+  color: light-dark(#222, #f5f0e8);
+  border: 1px solid light-dark(#222, #d9ab42);
+  outline: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.application.sheet.espers input[type=text]:hover[type=text], .application.sheet.espers input[type=text]:hover[type=number], .application.sheet.espers input[type=text]:focus[type=text], .application.sheet.espers input[type=text]:focus[type=number],
+.application.sheet.espers input[type=number]:hover[type=text],
+.application.sheet.espers input[type=number]:hover[type=number],
+.application.sheet.espers input[type=number]:focus[type=text],
+.application.sheet.espers input[type=number]:focus[type=number] {
+  background: light-dark(rgba(34, 34, 34, 0.2), rgba(217, 171, 66, 0.4));
+  box-shadow: none;
+  outline: 1px solid light-dark(#222, #d9ab42);
+}
+
+.application.sheet.espers .item-sheet-header {
+  display: flex;
+  gap: 20px;
+}
+.application.sheet.espers .item-sheet-header .image {
+  height: 125px;
+  width: 125px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.application.sheet.espers .item-sheet-header .item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.application.sheet.espers .item-sheet-header .item-info input {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
+  transition: all 0.3s ease;
+  outline: 2px solid transparent;
+  border: 1px solid transparent;
+}
+.application.sheet.espers .item-sheet-header .item-info input:hover[type=text], .application.sheet.espers .item-sheet-header .item-info input:focus[type=text] {
+  box-shadow: none;
+}
+.application.sheet.espers .item-sheet-header .item-header-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  width: 60px;
+  text-align: center;
+}
+.application.sheet.espers .item-sheet-header .item-header-tags .tags {
+  display: flex;
+  justify-content: space-between;
+}
+.application.sheet.espers .item-sheet-header .item-header-tags .tags span {
+  width: 20px;
+}
+
+/*# sourceMappingURL=espers.css.map */

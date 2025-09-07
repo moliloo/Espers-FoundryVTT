@@ -1,0 +1,31 @@
+@import '../utils/color.scss';
+
+.application.sheet.espers {
+    .window-header {
+        background: $primary-yellow;
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
+        box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.3);
+
+        .window-title,
+        button {
+            color: #202020;
+        }
+    }
+}
+
+.theme-dark {
+    .application.sheet.espers {
+        background-image: url('../../assets/images/background/dark-parchment.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.theme-light {
+    .application.sheet.espers {
+        background-image: url('../../assets/images/background/light-parchment.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

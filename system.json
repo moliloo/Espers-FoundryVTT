@@ -1,22 +1,45 @@
 {
-	"id": "espers",
-	"title": "Espers",
-	"description": "A Fantasy Opera Tabletop Roleplaying Game",
-	"version": "0.1.0",
-	"compatibility": {
-		"minimum": "12"
-	},
-	"authors": [
-		{
-			"name": "molilo"
-		}
-	],
-	"url": "https://github.com/moliloo/Espers-FoundryVTT",
-	"readme": "README.md",
-	"esmodules": ["module/espers.mjs"],
-	"styles": ["styles/espers.css"],
+    "id": "espers",
+    "title": "Espers",
+    "description": "A Fantasy Opera Tabletop Roleplaying Game",
+    "version": "0.1.0",
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    },
+    "authors": [
+        {
+            "name": "molilo"
+        }
+    ],
+    "url": "https://github.com/moliloo/Espers-FoundryVTT",
+    "readme": "README.md",
+    "esmodules": ["module/espers.mjs"],
+    "styles": ["styles/css/espers.css"],
 
-	"manifest": "",
-	"download": "",
-	"background": ""
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+
+    "documentTypes": {
+        "Actor": {
+            "character": {},
+            "monster": {}
+        },
+        "Item": {
+            "artifacts": {},
+            "consumable": {},
+            "equipment": {},
+            "general": {},
+            "throwable": {}
+        }
+    },
+
+    "manifest": "",
+    "download": "",
+    "background": ""
 }

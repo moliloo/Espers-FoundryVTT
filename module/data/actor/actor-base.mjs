@@ -18,22 +18,18 @@ export default class EspersActorBase extends foundry.abstract.TypeDataModel {
             strength: new fields.SchemaField({
                 level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
                 dice: new fields.StringField({ initial: 'd4' }),
-                bonus: new fields.NumberField({ ...requiredInteger, initial: 0 })
             }),
             intelligence: new fields.SchemaField({
                 level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
                 dice: new fields.StringField({ initial: 'd4' }),
-                bonus: new fields.NumberField({ ...requiredInteger, initial: 0 })
             }),
             charisma: new fields.SchemaField({
                 level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
                 dice: new fields.StringField({ initial: 'd4' }),
-                bonus: new fields.NumberField({ ...requiredInteger, initial: 0 })
             }),
             dexterity: new fields.SchemaField({
                 level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
                 dice: new fields.StringField({ initial: 'd4' }),
-                bonus: new fields.NumberField({ ...requiredInteger, initial: 0 })
             })
         });
 

@@ -1,70 +1,41 @@
 import { espers } from '../../helpers/config.mjs';
 
-export class EspersCharacterSheet extends ActorSheet {
-    static get defaultOptions() {
-        return foundry.utils.mergeObject(super.defaultOptions, {
-            classes: ['espers', 'sheet', 'actor', 'character'],
-            width: 600,
-            height: 660
-            // tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }]
-        });
+const { ActorSheetV2 } = foundry.applications.sheets;
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+
+export default class EspersCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+    static DEFAULT_OPTIONS = {
+        tag: 'form',
+        classes: ['espers', 'sheet', 'actor', 'character'],
+        position: { width: 600, height: 660 }
+    };
+
+    get title() {
+        return this.actor.name;
     }
 
-    get template() {
-        return `systems/espers/templates/actors/actor/character-sheet.hbs`;
-    }
-
-    getData() {
-        const context = super.getData();
-        const actorData = context.data;
-
-        context.system = actorData.system;
-        context.config = CONFIG.ESPERS;
-        context.rollData = context.actor.getRollData();
-
-        // context.effects = this.prepareActiveEffectCategories(this.actor.effects)
-
-        this._prepareItems(context);
-
-        return context;
-    }
-
-    async _prepareItems(event) {
-        // Inicializa os containers
-        const consumable = [];
-        const equipment = [];
-        const aether = [];
-        const fate = [];
-
-        // Itera pelos itens e aloca nos containers apropriados
-        for (let i of event.items) {
-            i.img = i.img || Item.DEFAULT_ICON;
-
-            switch (i.type) {
-                case 'consumable':
-                    consumable.push(i);
-                    break;
-                case 'equipment':
-                    equipment.push(i);
-                    break;
-                case 'card': // Para itens do tipo carta
-                    if (i.system.location === 'aether') {
-                        aether.push(i);
-                    } else if (i.system.location === 'fate') {
-                        fate.push(i);
-                    } else {
-                        console.warn(`Card not located: ${i.name}`);
-                    }
-                    break;
-                default:
-                    console.warn(`Unexpected type: ${i.type}`);
-            }
+    static PARTS = {
+        form: {
+            id: 'form',
+            template: 'systems/espers/templates/sheets/actors/actor/character-sheet.hbs'
         }
+    };
 
-        // Armazena os dados no ator
-        event.consumable = consumable;
-        event.equipment = equipment;
-        event.aether = aether;
-        event.fate = fate;
+    async _prepareContext(options) {
+        return {
+            actor: this.document,
+            source: this.document.toObject()
+            // tabs: this.prepareTabs(this.constructor.TABS).sheet
+        };
+    }
+
+    async _onDrop(event) {
+        event.preventDefault();
+        const data = TextEditor.getDragEventData(event);
+        if (!data || !data.type) return;
+
+        const item = await Item.fromDropData(data);
+
+        await this.actor.createEmbeddedDocuments('Item', [item.toObject()]);
     }
 }

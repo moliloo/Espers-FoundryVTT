@@ -1,0 +1,24 @@
+<header class='item-sheet-header'>
+    <img class='image' src='{{source.img}}' data-action='editImage' data-edit='img' />
+    <div class='item-info'>
+        <h1><input type='text' name='name' value='{{source.name}}' /></h1>
+        <span>{{localize 'TYPES.Item.artifacts'}}</span>
+        <span>{{localize (concat 'ESPERS.Item.rarity.' source.system.rarity)}}</span>
+    </div>
+    <div class='item-header-tags'>
+        <span class='tags' data-tooltip='{{localize "ESPERS.Tooltip.quantity"}}'>
+            <span>x</span>
+            <span>{{source.system.quantity}}</span>
+        </span>
+        <span class='tags' data-tooltip='{{localize "ESPERS.Tooltip.price"}}'>
+            <span><i class='fa-solid fa-coins'></i></span>
+            <span>{{source.system.price}}</span>
+        </span>
+        <span class='tags' data-tooltip='{{localize "ESPERS.Tooltip.size"}}'>
+            <span>
+                <i class='fa-solid fa-up-right-and-down-left-from-center'></i>
+            </span>
+            <span>{{source.system.size}}</span>
+        </span>
+    </div>
+</header>

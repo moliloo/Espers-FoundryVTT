@@ -1,10 +1,4 @@
 export class EspersItem extends Item {
-    prepareData() {
-        super.prepareData();
-        this.system.odd = this.system.cardNumber.value % 2 !== 0;
-        this.system.even = this.system.cardNumber.value % 2 === 0;
-    }
-
     getRollData() {
         const rollData = { ...super.getRollData() };
 
