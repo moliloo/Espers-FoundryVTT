@@ -18,7 +18,7 @@ Hooks.once('init', function () {
 
     game.espers = {
         // EspersActor,
-        // EspersItem,
+        EspersItemSheet,
         EspersCharacterSheet,
         EspersMonsterSheet,
 
@@ -37,6 +37,8 @@ Hooks.once('init', function () {
     };
     CONFIG.Item.dataModels = {
         artifacts: models.EspersItemBase,
+        gems: models.EspersItemBase,
+        general: models.EspersItemBase,
         consumable: models.EspersConsumable,
         equipment: models.EspersEquipment,
         throwable: models.EspersThrowable
@@ -49,6 +51,7 @@ Hooks.once('init', function () {
     Items.registerSheet('espers', sheets.EspersConsumableSheet, { types: ['consumable'], makeDefault: true });
     Items.registerSheet('espers', sheets.EspersEquipmentSheet, { types: ['equipment'], makeDefault: true });
     Items.registerSheet('espers', sheets.EspersThrowable, { types: ['throwable'], makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersGemsSheet, { types: ['gems'], makeDefault: true });
 
     Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
     Actors.registerSheet('espers', sheets.EspersCharacterSheet, { types: ['character'], makeDefault: true });

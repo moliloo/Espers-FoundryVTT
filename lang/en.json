@@ -8,6 +8,7 @@
             "artifacts": "Artifacts",
             "consumable": "Consumable",
             "equipment": "Equipment",
+            "gems": "Gems",
             "general": "General",
             "throwable": "Throwable"
         }
