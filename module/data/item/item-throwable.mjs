@@ -9,6 +9,8 @@ export default class EspersThrowable extends EspersItemBase {
 
         schema.type = new fields.StringField({ required: true, blank: true });
 
+        schema.consumeOnUse = new fields.BooleanField({ initial: false });
+
         return schema;
     }
 }

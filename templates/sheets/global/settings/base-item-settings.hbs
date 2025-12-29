@@ -45,6 +45,19 @@
                     </div>
                 </div>
             {{/if}}
+
+            {{#if (eq source.type 'throwable')}}
+                <div class='form-group'>
+                    <div class='form-fields'>
+                        <label>Consumable Type</label>
+                        <select name='system.type'>
+                            {{selectOptions config.itemType.throwable selected=source.system.type localize=true}}
+                        </select>
+                    </div>
+                </div>
+
+                {{formGroup fields.consumeOnUse value=source.system.consumeOnUse localize=true blank=false label='Consume on use'}}
+            {{/if}}
         </div>
     </div>
 </section>
