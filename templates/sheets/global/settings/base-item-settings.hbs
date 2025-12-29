@@ -34,6 +34,17 @@
 
                 {{formGroup fields.consumeOnUse value=source.system.consumeOnUse localize=true blank=false label='Consume on use'}}
             {{/if}}
+
+            {{#if (eq source.type 'equipment')}}
+                <div class='form-group'>
+                    <div class='form-fields'>
+                        <label>Consumable Type</label>
+                        <select name='system.type'>
+                            {{selectOptions config.equipmentType selected=source.system.type localize=true}}
+                        </select>
+                    </div>
+                </div>
+            {{/if}}
         </div>
     </div>
 </section>
