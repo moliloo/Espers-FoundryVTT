@@ -2,7 +2,12 @@
     <img class='image' src='{{source.img}}' data-action='editImage' data-edit='img' />
     <div class='item-info'>
         <h1><input type='text' name='name' value='{{source.name}}' /></h1>
-        <span>{{localize (concat 'TYPES.Item.' source.type)}}</span>
+        <span>
+            {{localize (concat 'TYPES.Item.' source.type)}}
+            {{#if source.system.type}}
+                - {{localize source.system.type}}
+            {{/if}}
+        </span>
         <span>{{localize (concat 'ESPERS.Item.rarity.' source.system.rarity)}}</span>
     </div>
     <div class='item-header-tags'>

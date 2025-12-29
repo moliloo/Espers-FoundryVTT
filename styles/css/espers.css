@@ -71,6 +71,18 @@
   background: #222;
   border-radius: 6px;
 }
+.application.sheet.espers input[type=checkbox]:checked::after,
+.application.sheet.espers input[type=radio]:checked::after {
+  color: light-dark(#222, #d9ab42);
+}
+.application.sheet.espers input[type=checkbox]:checked::before,
+.application.sheet.espers input[type=radio]:checked::before {
+  color: light-dark(rgba(52, 52, 52, 0.2509803922), rgba(217, 171, 66, 0.2509803922));
+}
+.application.sheet.espers input[type=checkbox]::before,
+.application.sheet.espers input[type=radio]::before {
+  color: light-dark(rgba(52, 52, 52, 0.2509803922), rgba(217, 171, 66, 0.2509803922));
+}
 
 .application.sheet.espers .item-sheet-header {
   display: flex;

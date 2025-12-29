@@ -31,4 +31,17 @@
             border-radius: 6px;
         }
     }
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        &:checked::after {
+            color: light-dark($dark, $primary-yellow);
+        }
+        &:checked::before {
+            color: light-dark($dark-40, $primary-yellow-40);
+        }
+        &::before {
+            color: light-dark($dark-40, $primary-yellow-40);
+        }
+    }
 }

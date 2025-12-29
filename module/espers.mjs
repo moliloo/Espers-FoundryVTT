@@ -8,6 +8,7 @@ import { default as EspersItemSheet } from './sheets/items/item-sheet.mjs';
 import * as sheets from './sheets/_module.mjs';
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
+import { registerHandelbarHelpers } from './helpers/handlebars.mjs';
 import { espers } from './helpers/config.mjs';
 
 import * as models from './data/_module.mjs';
@@ -59,6 +60,7 @@ Hooks.once('init', function () {
     Actors.registerSheet('espers', sheets.EspersMonsterSheet, { types: ['monster'], makeDefault: true });
 
     preloadHandlebarsTemplates();
+    registerHandelbarHelpers();
 });
 
 Hooks.once('ready', function () {

@@ -1,9 +1,10 @@
 import { default as EspersItemSheet } from './item-sheet.mjs';
+import { espers } from '../../helpers/config.mjs';
 
 export default class EspersConsumableSheet extends EspersItemSheet {
     static DEFAULT_OPTIONS = {
         tag: 'form',
-        classes: ['espers', 'sheet', 'item', 'artifacts']
+        classes: ['espers', 'sheet', 'item', 'consumable']
     };
 
     static PARTS = {
@@ -20,7 +21,7 @@ export default class EspersConsumableSheet extends EspersItemSheet {
             scrollable: ['.description']
         },
         settings: {
-            template: 'systems/espers/templates/sheets/global/settings/consumable-item-settings.hbs',
+            template: 'systems/espers/templates/sheets/global/settings/base-item-settings.hbs',
             scrollable: ['.settings']
         },
         effects: {
@@ -28,4 +29,24 @@ export default class EspersConsumableSheet extends EspersItemSheet {
             scrollable: ['.effects']
         }
     };
+
+    static TABS = {
+        sheet: [
+            { id: 'description', group: 'consumable', label: 'ESPERS.Item.tabs.description' },
+            { id: 'settings', group: 'consumable', label: 'ESPERS.Item.tabs.settings' },
+            { id: 'effects', group: 'consumable', label: 'ESPERS.Item.tabs.effects' }
+        ]
+    };
+
+    async _prepareContext(options) {
+        return {
+            item: this.document,
+            source: this.document.toObject(),
+            config: espers,
+            tabs: this.prepareTabs(this.constructor.TABS).sheet,
+            description: this.document.system.description,
+            fields: this.document.system.schema.fields,
+            effects: this.prepareActiveEffectCategories(this.item.effects)
+        };
+    }
 }
