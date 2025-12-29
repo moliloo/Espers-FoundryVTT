@@ -1,0 +1,26 @@
+<section
+    class='tab {{tabs.settings.cssClass}} {{tabs.settings.id}}'
+    data-tab='{{tabs.settings.id}}'
+    data-group='{{tabs.settings.group}}'
+>
+
+    <div class='sheet-section settings-section'>
+        <div class='section-header'>{{localize tabs.settings.label}}</div>
+        <div class='settings-list'>
+            <div class='form-group'>
+                <div class='form-fields'>
+                    <label>Rarirty</label>
+                    <select name='system.rarity'>
+                        {{selectOptions config.rarity selected=source.system.rarity localize=true}}
+                    </select>
+                </div>
+            </div>
+
+            {{formGroup fields.quantity value=source.system.quantity localize=true blank=false label='Quantity'}}
+
+            {{formGroup fields.size value=source.system.size localize=true blank=false label='Size'}}
+
+            {{formGroup fields.price value=source.system.price localize=true blank=false label='Price'}}
+        </div>
+    </div>
+</section>

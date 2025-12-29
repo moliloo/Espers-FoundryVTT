@@ -2,31 +2,31 @@
     data-tab='{{tabs.effects.id}}'
     data-group='{{tabs.effects.group}}'>
     {{#each effects as |section sid|}}
-        <fieldset class="one-column">
-            <legend>
+        <div class="sheet-section item-section">
+            <div class="section-header">
                 {{localize section.label}}
                 <a class="effect-control" data-action="createEffect" data-tooltip="{{localize 'DOCUMENT.Create' type="Effect"}}">
                     <i class="fas fa-plus"></i>
                 </a>
-            </legend>
-           <ul class="effect-list">
+            </div>
+           <ul class="effect-list items-list">
                 {{#each section.effects as |effect|}}
-                    <li class="item effect" data-effect-id="{{effect.id}}"
+                    <li class="item-line effect" data-effect-id="{{effect.id}}"
                         data-parent-id="{{effect.parent.uuid}}" data-parent-uuid="{{effect.parent.uuid}}">
                         <div class="effect-line">
                             <img class="image" src="{{effect.img}}" />
                             <h4>{{effect.name}}</h4>
                             <div class="controls">
                                 <a class="effect-control" data-action="toggleEffect"
-                                    data-tooltip="{{localize 'DAGGERHEART.Tooltip.toggleEffect'}}">
+                                    data-tooltip="{{localize 'Toggle'}}">
                                     <i class="fas {{#if effect.disabled}}fa-toggle-off{{else}}fa-toggle-on{{/if}}"></i>
                                 </a>
                                 <a class="effect-control" data-action="editEffect"
-                                    data-tooltip="{{localize 'DAGGERHEART.Tooltip.edit'}}">
+                                    data-tooltip="{{localize 'Edit'}}">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a class="effect-control" data-action="deleteEffect"
-                                    data-tooltip="{{localize 'DAGGERHEART.Tooltip.delete'}}">
+                                    data-tooltip="{{localize 'Delete'}}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </div>
@@ -37,6 +37,6 @@
                     </li>
                 {{/each}}
            </ul>
-        </fieldset>
+        </div>
     {{/each}}
 </section>

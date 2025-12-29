@@ -2,7 +2,8 @@
 
 .application.sheet.espers {
     input[type='text'],
-    input[type='number'] {
+    input[type='number'],
+    select {
         background: light-dark(transparent, transparent);
         border-radius: 6px;
         box-shadow: 0 4px 30px $black-05;
@@ -12,13 +13,22 @@
         outline: 1px solid transparent;
         transition: all 0.3s ease;
 
+        &:hover,
         &:hover[type='text'],
         &:hover[type='number'],
+        &:focus,
         &:focus[type='text'],
         &:focus[type='number'] {
             background: light-dark($dark-20, $primary-yellow-40);
             box-shadow: none;
             outline: 1px solid light-dark($dark, $primary-yellow);
+        }
+
+        & option,
+        & optgroup {
+            color: $beige;
+            background: $dark;
+            border-radius: 6px;
         }
     }
 }

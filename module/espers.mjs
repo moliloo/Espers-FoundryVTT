@@ -52,6 +52,7 @@ Hooks.once('init', function () {
     Items.registerSheet('espers', sheets.EspersEquipmentSheet, { types: ['equipment'], makeDefault: true });
     Items.registerSheet('espers', sheets.EspersThrowable, { types: ['throwable'], makeDefault: true });
     Items.registerSheet('espers', sheets.EspersGemsSheet, { types: ['gems'], makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersGeneralSheet, { types: ['general'], makeDefault: true });
 
     Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
     Actors.registerSheet('espers', sheets.EspersCharacterSheet, { types: ['character'], makeDefault: true });

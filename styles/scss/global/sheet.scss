@@ -29,3 +29,17 @@
         background-position: center;
     }
 }
+
+.espers .tab {
+    padding-top: 2rem;
+
+    &.effects.active {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &.description.active {
+        padding-top: 0.75rem;
+    }
+}

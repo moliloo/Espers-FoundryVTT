@@ -10,7 +10,7 @@ export default class EspersGemsSheet extends EspersItemSheet {
     static PARTS = {
         header: {
             id: 'header',
-            template: 'systems/espers/templates/sheets/items/gems/header.hbs'
+            template: 'systems/espers/templates/sheets/global/header/sheet-item-header.hbs'
         },
         tabs: {
             id: 'tabs',
@@ -21,7 +21,7 @@ export default class EspersGemsSheet extends EspersItemSheet {
             scrollable: ['.description']
         },
         settings: {
-            template: 'systems/espers/templates/sheets/items/gems/settings.hbs',
+            template: 'systems/espers/templates/sheets/global/settings/base-item-settings.hbs',
             scrollable: ['.settings']
         },
         effects: {
