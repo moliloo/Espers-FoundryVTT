@@ -1,3 +1,45 @@
+.application.sheet.espers.magic-arts .magic-arts-header {
+  display: flex;
+  align-items: center;
+}
+.application.sheet.espers.magic-arts .magic-arts-header .image {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.application.sheet.espers.magic-arts .magic-arts-header h1 {
+  margin: 0 auto;
+}
+.application.sheet.espers.magic-arts .magic-arts-header h1 input {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
+  transition: all 0.3s ease;
+  outline: 2px solid transparent;
+  border: 1px solid transparent;
+}
+.application.sheet.espers.magic-arts .magic-arts-header h1 input:hover[type=text], .application.sheet.espers.magic-arts .magic-arts-header h1 input:focus[type=text] {
+  box-shadow: none;
+}
+
+.application.sheet.espers.magic-arts .magic-arts-abilities {
+  margin-top: 20px;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header h2 {
+  font-size: 28px;
+  margin: 0 auto;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header button {
+  position: fixed;
+  right: 15px;
+}
+
 .application.sheet.espers .window-header {
   background: #d9ab42;
   border-radius: 5px 5px 0 0;

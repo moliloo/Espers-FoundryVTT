@@ -1,0 +1,34 @@
+@import '../../utils/color.scss';
+
+.application.sheet.espers.magic-arts{
+    .magic-arts-header {
+        display: flex;
+        align-items: center;
+
+        .image {
+            height: 80px;
+            width: 80px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        h1 {
+            margin: 0 auto;
+
+            input {
+                font-size: 32px;
+                height: 42px;
+                text-align: center;
+                transition: all 0.3s ease;
+                outline: 2px solid transparent;
+                border: 1px solid transparent;
+    
+                &:hover[type='text'],
+                &:focus[type='text'] {
+                    box-shadow: none;
+                }
+            }
+        }
+
+    }
+}

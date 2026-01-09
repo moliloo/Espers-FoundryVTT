@@ -1,0 +1,22 @@
+@import '../../utils/color.scss';
+
+.application.sheet.espers.magic-arts{
+    .magic-arts-abilities {
+            margin-top: 20px;
+        .abilities-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h2 {
+                font-size: 28px;
+                margin: 0 auto;
+            }
+
+            button {
+                position: fixed;
+                right: 15px;
+            }
+        }
+    }
+}

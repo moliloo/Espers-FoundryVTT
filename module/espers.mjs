@@ -42,6 +42,7 @@ Hooks.once('init', function () {
         general: models.EspersItemBase,
         consumable: models.EspersConsumable,
         equipment: models.EspersEquipment,
+        magicArts: models.EspersMagicArts,
         throwable: models.EspersThrowable
     };
 
@@ -54,6 +55,7 @@ Hooks.once('init', function () {
     Items.registerSheet('espers', sheets.EspersThrowable, { types: ['throwable'], makeDefault: true });
     Items.registerSheet('espers', sheets.EspersGemsSheet, { types: ['gems'], makeDefault: true });
     Items.registerSheet('espers', sheets.EspersGeneralSheet, { types: ['general'], makeDefault: true });
+    Items.registerSheet('espers', sheets.EspersMagicArtsSheet, { types: ['magicArts'], makeDefault: true });
 
     Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
     Actors.registerSheet('espers', sheets.EspersCharacterSheet, { types: ['character'], makeDefault: true });
