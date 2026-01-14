@@ -4,7 +4,10 @@ import { espers } from '../../helpers/config.mjs';
 export default class EspersMagicArtsSheet extends EspersItemSheet {
     static DEFAULT_OPTIONS = {
         tag: 'form',
-        classes: ['espers', 'sheet', 'item', 'magic-arts']
+        classes: ['espers', 'sheet', 'item', 'magic-arts'],
+        actions: {
+            addAbility: this.#addAbility
+        }
     };
 
     static PARTS = {
@@ -38,5 +41,14 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
             fields: this.document.system.schema.fields,
             effects: this.prepareActiveEffectCategories(this.item.effects)
         };
+    }
+
+    static async #addAbility() {
+        const newAbility = {
+            name: 'Ability',
+            description: '',
+            rankedAbilities: []
+        };
+        await this.item.update({ [`system.abilities.${foundry.utils.randomID()}`]: newAbility });
     }
 }

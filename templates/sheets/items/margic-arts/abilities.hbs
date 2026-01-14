@@ -1,7 +1,21 @@
 <section class="magic-arts-abilities">
     <div class="abilities-header">
         <h2>Abilities</h2>
-        <button>Create Ability</button>
+        <button data-action="addAbility">Create Ability</button>
     </div>
     
+    {{#each source.system.abilities as |ability id|}}
+    <input type="text" name="{{concat 'system.abilities.' id ".name"}}" value="{{ability.name}}">
+    <div class='sheet-section sheet-description'>
+        {{formInput
+            @root.fields.abilities.element.fields.description
+            name=(concat 'system.abilities.' id ".description")
+            value=ability.description
+            enriched=ability.description
+            toggled=true
+            compact=true
+            classes='slim'
+        }}
+    </div>
+{{/each}}
 </section>

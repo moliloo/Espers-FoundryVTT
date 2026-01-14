@@ -185,6 +185,7 @@
 .espers .sheet-section.sheet-description {
   display: block;
   padding: 0.5rem;
+  min-height: 4rem;
 }
 .espers .sheet-section .section-header {
   box-sizing: content-box;
