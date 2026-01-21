@@ -1,0 +1,54 @@
+<section 
+    class='tab {{tabs.skills.cssClass}} {{tabs.skills.id}} magic-arts-skills'
+    data-tab='{{tabs.skills.id}}'
+    data-group='{{tabs.skills.group}}'
+>
+    <div class="skill-header">
+        <h2>Skills</h2>
+        <button data-action="addSkill">Create Skill</button>
+    </div>
+    
+    <ul class="skill-list">
+    {{#each source.system.skills as |skill id|}}
+        <li class="espers-item">
+            <div class="espers-item-header" data-action="toggleExtended">
+                <h1>{{skill.name}}</h1>
+                <div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="espers-item-content extensible">
+                <div>
+                    <input type="text" name="{{concat 'system.skills.' id ".name"}}" value="{{skill.name}}">
+                    <div class='sheet-section sheet-description'>
+                        {{formInput
+                            @root.fields.skills.element.fields.description
+                            name=(concat 'system.skills.' id ".description")
+                            value=skill.description
+                            enriched=skill.description
+                            toggled=true
+                            compact=true
+                            classes='slim'
+                        }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Level</label>
+                        <div class="form-fields">
+                            <input type="number" name="{{concat 'system.skills.' id ".level"}}" value="{{skill.level}}" step="any">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Damage</label>
+                        <div class="form-fields">
+                            <input type="text" name="{{concat 'system.skills.' id ".damage"}}" value="{{skill.damage}}" step="any">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+</section>

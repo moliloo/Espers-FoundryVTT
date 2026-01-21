@@ -1,9 +1,10 @@
 @import '../../utils/color.scss';
 
 .application.sheet.espers.magic-arts{
-    .magic-arts-abilities {
-            margin-top: 20px;
-        .abilities-header {
+    .magic-arts-abilities,
+    .magic-arts-skills {
+        .abilities-header,
+        .skill-header {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,6 +17,68 @@
             button {
                 position: fixed;
                 right: 15px;
+            }
+        }
+
+        .abilities-list,
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            max-height: 500px;
+    
+            .espers-item {
+                .espers-item-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+        
+                    h1 {
+                        font-size: 32px;
+                    }
+        
+                    div {
+        
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        height: 20px;
+        
+                        i {
+                            font-size: 1rem;
+                            transition: all 0.1s ease-in-out;
+                        }
+                    }
+        
+                    &.extended {
+                        div i {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+        
+                .espers-item-content {
+                    display: none;
+        
+                    &.extensible {
+                        display: grid;
+                        grid-template-rows: 0fr;
+                        transition: grid-template-rows 0.3s ease-in-out;
+                        &.extended {
+                            grid-template-rows: 1fr;
+                        }
+        
+                        div {
+                            overflow: hidden;
+                        }
+                    }
+                }
             }
         }
     }

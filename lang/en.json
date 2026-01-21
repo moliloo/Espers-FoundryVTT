@@ -24,6 +24,8 @@
         "Item": {
             "tabs": {
                 "description": "Description",
+                "abilities": "Abilities",
+                "skills": "Skills",
                 "settings": "Settings",
                 "effects": "Effects"
             },

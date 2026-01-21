@@ -6,7 +6,9 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
         tag: 'form',
         classes: ['espers', 'sheet', 'item', 'magic-arts'],
         actions: {
-            addAbility: this.#addAbility
+            addAbility: this.#addAbility,
+            toggleExtended: this.#toggleExtended,
+            addSkill: this.#addSkill,
         }
     };
 
@@ -14,6 +16,10 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
         header: {
             id: 'header',
             template: 'systems/espers/templates/sheets/items/margic-arts/header.hbs'
+        },
+        tabs: {
+            id: 'tabs',
+            template: 'systems/espers/templates/sheets/global/tabs/tab-navigation.hbs'
         },
         description: {
             template: 'systems/espers/templates/sheets/global/tabs/tab-description.hbs',
@@ -23,11 +29,17 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
             id: 'abilities',
             template: 'systems/espers/templates/sheets/items/margic-arts/abilities.hbs'
         },
+        skills: {
+            id: 'skills',
+            template: 'systems/espers/templates/sheets/items/margic-arts/skills.hbs'
+        },
     };
 
     static TABS = {
         sheet: [
             { id: 'description', group: 'magic-arts', label: 'ESPERS.Item.tabs.description' },
+            { id: 'abilities', group: 'magic-arts', label: 'ESPERS.Item.tabs.abilities' },
+            { id: 'skills', group: 'magic-arts', label: 'ESPERS.Item.tabs.skills' },
         ]
     };
 
@@ -50,5 +62,26 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
             rankedAbilities: []
         };
         await this.item.update({ [`system.abilities.${foundry.utils.randomID()}`]: newAbility });
+    }
+
+    static async #addSkill() {
+        const newSkill = {
+            name: 'Skill',
+            description: '',
+            level: 1,
+            damage: '1',
+            rankType: 'novice',
+
+        };
+        await this.item.update({ [`system.skills.${foundry.utils.randomID()}`]: newSkill });
+    }
+
+    static async #toggleExtended(_, target) {
+        const container = target.closest('.espers-item');
+        const extensible = container?.querySelector('.extensible');
+        const header = container?.querySelector('.espers-item-header');
+
+        extensible?.classList.toggle('extended');
+        header?.classList.toggle('extended');
     }
 }

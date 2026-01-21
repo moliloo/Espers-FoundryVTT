@@ -23,21 +23,104 @@
   box-shadow: none;
 }
 
-.application.sheet.espers.magic-arts .magic-arts-abilities {
-  margin-top: 20px;
-}
-.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header {
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-header,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-header,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header h2 {
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header h2,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-header h2,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-header h2,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-header h2 {
   font-size: 28px;
   margin: 0 auto;
 }
-.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header button {
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-header button,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-header button,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-header button,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-header button {
   position: fixed;
   right: 15px;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 500px;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-header,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-header,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-header,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-header h1,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-header h1,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-header h1,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-header h1 {
+  font-size: 32px;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-header div,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-header div,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-header div,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-header div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-header div i,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-header div i,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-header div i,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-header div i {
+  font-size: 1rem;
+  transition: all 0.1s ease-in-out;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-header.extended div i,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-header.extended div i,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-header.extended div i,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-header.extended div i {
+  transform: rotate(90deg);
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-content,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-content,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-content,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-content {
+  display: none;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-content.extensible,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-content.extensible,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-content.extensible,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-content.extensible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-content.extensible.extended,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-content.extensible.extended,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-content.extensible.extended,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-content.extensible.extended {
+  grid-template-rows: 1fr;
+}
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-content.extensible div,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-content.extensible div,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-content.extensible div,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-content.extensible div {
+  overflow: hidden;
 }
 
 .application.sheet.espers .window-header {
