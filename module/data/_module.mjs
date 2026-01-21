@@ -8,3 +8,4 @@ export { default as EspersCard } from './item/item-card.mjs';
 export { default as EspersThrowable } from './item/item-throwable.mjs';
 export { default as EspersConsumable } from './item/item-consumable.mjs';
 export { default as EspersMagicArts } from './item/item-magic-arts.mjs';
+export { default as EspersWeapon } from './item/item-weapon.mjs';

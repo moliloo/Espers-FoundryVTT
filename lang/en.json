@@ -11,7 +11,8 @@
             "gems": "Gems",
             "general": "General",
             "magicArts": "Magic Arts",
-            "throwable": "Throwable"
+            "throwable": "Throwable",
+            "weapon": "Weapon"
         }
     },
     "ESPERS": {

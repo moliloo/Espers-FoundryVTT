@@ -9,3 +9,4 @@ export { default as EspersGeneralSheet } from './items/general-sheet.mjs';
 export { default as EspersThrowable } from './items/throwable-sheet.mjs';
 export { default as EspersGemsSheet } from './items/gems-sheet.mjs';
 export { default as EspersMagicArtsSheet } from './items/margic-arts.mjs';
+export { default as EspersWeaponSheet } from './items/weapon-sheet.mjs';

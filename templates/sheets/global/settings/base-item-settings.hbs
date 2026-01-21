@@ -7,20 +7,22 @@
     <div class='sheet-section settings-section'>
         <div class='section-header'>{{localize tabs.settings.label}}</div>
         <div class='settings-list'>
-            <div class='form-group'>
-                <div class='form-fields'>
-                    <label>Rarirty</label>
-                    <select name='system.rarity'>
-                        {{selectOptions config.rarity selected=source.system.rarity localize=true}}
-                    </select>
+            {{#unless (eq source.type 'weapon')}}
+                <div class='form-group'>
+                    <div class='form-fields'>
+                        <label>Rarirty</label>
+                        <select name='system.rarity'>
+                            {{selectOptions config.rarity selected=source.system.rarity localize=true}}
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            {{formGroup fields.quantity value=source.system.quantity localize=true blank=false label='Quantity'}}
+                {{formGroup fields.quantity value=source.system.quantity localize=true blank=false label='Quantity'}}
 
-            {{formGroup fields.size value=source.system.size localize=true blank=false label='Size'}}
+                {{formGroup fields.size value=source.system.size localize=true blank=false label='Size'}}
 
-            {{formGroup fields.price value=source.system.price localize=true blank=false label='Price'}}
+                {{formGroup fields.price value=source.system.price localize=true blank=false label='Price'}}
+            {{/unless}}
 
             {{#if (eq source.type 'consumable')}}
                 <div class='form-group'>
@@ -57,6 +59,35 @@
                 </div>
 
                 {{formGroup fields.consumeOnUse value=source.system.consumeOnUse localize=true blank=false label='Consume on use'}}
+            {{/if}}
+
+            {{#if (eq source.type 'weapon')}}
+                <div class='form-group'>
+                    <div class='form-fields'>
+                        <label>Weapon Type</label>
+                        <select name='system.type'>
+                            {{selectOptions config.weaponType selected=source.system.type localize=true}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <div class='form-fields'>
+                        <label>Range</label>
+                        <select name='system.range'>
+                            {{selectOptions config.weaponRange selected=source.system.range localize=true}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class='form-group'>
+                    <div class='form-fields'>
+                        <label>Range</label>
+                        <select name='system.variant'>
+                            {{selectOptions config.weaponVariant selected=source.system.variant localize=true}}
+                        </select>
+                    </div>
+                </div>
             {{/if}}
         </div>
     </div>

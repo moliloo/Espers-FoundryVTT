@@ -2,21 +2,89 @@ export const espers = {};
 
 espers.ascii = 'Espers';
 
-espers.weaponType = {
-    Daggers: 'Daggers',
-    Sword: 'Sword',
-    LongSword: 'Long Sword',
-    Axe: 'Axe',
-    Cane: 'Cane',
-    Spear: 'Spear',
-    Bow: 'Bow',
-    Boomerang: 'Boomerang'
+espers.weaponRange = {
+    close: {
+        label: 'Close',
+        value: 'close',
+    },
+    near: {
+        label: 'Near',
+        value: 'near',
+    },
+    far: {
+        label: 'Far',
+        value: 'far',
+    }
 };
 
-espers.weaponRange = {
-    Close: 'Close',
-    Near: 'Near',
-    Far: 'Far'
+espers.weaponType = {
+    daggers: {
+        label: 'Daggers',
+        effect: 2,
+        range: espers.weaponRange.close,
+    },
+    sword: {
+        label: 'Sword',
+        effect: 2,
+        range: espers.weaponRange.close,
+    },
+    longSword: {
+        label: 'Long Sword',
+        effect: 1,
+        range: espers.weaponRange.near,
+    },
+    axe: {
+        label: 'Axe',
+        effect: 1,
+        range: espers.weaponRange.near,
+    },
+    cane: {
+        label: 'Cane',
+        effect: 1,
+        range: espers.weaponRange.near,
+    },
+    spear: {
+        label: 'Spear',
+        effect: 1,
+        range: espers.weaponRange.near,
+    },
+    bow: {
+        label: 'Bow',
+        effect: -1,
+        range: espers.weaponRange.far,
+    },
+    boomerang: {
+        label: 'Boomerang',
+        effect: -1,
+        range: espers.weaponRange.far,
+    }
+};
+
+espers.weaponVariant = {
+    bronze: {
+        label: 'Bronze',
+        effect: 0,
+    },
+    iron: {
+        label: 'Iron',
+        effect: 1,
+    },
+    steel: {
+        label: 'Steel',
+        effect: 2,
+    },
+    silver: {
+        label: 'Silver',
+        effect: 3,
+    },
+    mithril: {
+        label: 'Mithril',
+        effect: 4,
+    },
+    scale: {
+        label: 'Scale',
+        effect: 5,
+    },
 };
 
 espers.rarity = {
