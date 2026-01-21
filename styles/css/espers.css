@@ -122,6 +122,13 @@
 .application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-content.extensible div {
   overflow: hidden;
 }
+.application.sheet.espers.magic-arts .magic-arts-abilities .abilities-list .espers-item .espers-item-content.extensible div .delete,
+.application.sheet.espers.magic-arts .magic-arts-abilities .skill-list .espers-item .espers-item-content.extensible div .delete,
+.application.sheet.espers.magic-arts .magic-arts-skills .abilities-list .espers-item .espers-item-content.extensible div .delete,
+.application.sheet.espers.magic-arts .magic-arts-skills .skill-list .espers-item .espers-item-content.extensible div .delete {
+  justify-self: end;
+  margin-top: 20px;
+}
 
 .application.sheet.espers .window-header {
   background: #d9ab42;

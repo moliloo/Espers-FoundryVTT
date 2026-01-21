@@ -9,6 +9,8 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
             addAbility: this.#addAbility,
             toggleExtended: this.#toggleExtended,
             addSkill: this.#addSkill,
+            deleteSkill: this.#deleteSkill,
+            deleteAbility: this.#deleteAbility,
         }
     };
 
@@ -74,6 +76,17 @@ export default class EspersMagicArtsSheet extends EspersItemSheet {
 
         };
         await this.item.update({ [`system.skills.${foundry.utils.randomID()}`]: newSkill });
+    }
+    
+
+    static async #deleteSkill(_, target) {
+        const { id } = target.dataset;
+        await this.item.update({ [`system.skills.-=${id}`]: null });
+    }
+
+    static async #deleteAbility(_, target) {
+        const { id } = target.dataset;
+        await this.item.update({ [`system.abilities.-=${id}`]: null });
     }
 
     static async #toggleExtended(_, target) {

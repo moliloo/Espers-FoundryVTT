@@ -76,6 +76,11 @@
         
                         div {
                             overflow: hidden;
+
+                            .delete {
+                                justify-self: end;
+                                margin-top: 20px;
+                            }
                         }
                     }
                 }
