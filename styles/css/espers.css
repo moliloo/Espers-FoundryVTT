@@ -130,6 +130,244 @@
   margin-top: 20px;
 }
 
+.application.espers.actor.character .d-flex {
+  display: flex;
+}
+.application.espers.actor.character .gap-10 {
+  gap: 10px;
+}
+.application.espers.actor.character .header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.application.espers.actor.character .header .first-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.application.espers.actor.character .header .first-row .title {
+  line-height: 0;
+  margin: 0;
+  width: -webkit-fill-available;
+}
+.application.espers.actor.character .header .first-row .title input {
+  font-size: 32px;
+  height: 42px;
+  text-align: start;
+  transition: all 0.3s ease;
+  outline: 2px solid transparent;
+  border: 1px solid transparent;
+}
+.application.espers.actor.character .header .first-row .title input:hover[type=text], .application.espers.actor.character .header .first-row .title input:focus[type=text] {
+  background: light-dark(rgba(52, 52, 52, 0.1254901961), rgba(217, 171, 66, 0.2509803922));
+  box-shadow: none;
+  outline: 1px solid light-dark(#222, #d9ab42);
+}
+.application.espers.actor.character .header .second-row {
+  display: flex;
+  gap: 10px;
+}
+.application.espers.actor.character .header .second-row .stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 200px;
+}
+.application.espers.actor.character .header .second-row .stats .stat {
+  height: -webkit-fill-available;
+  position: relative;
+}
+.application.espers.actor.character .header .second-row .stats .stat::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 120% 120%;
+  background-size: 48px;
+  opacity: 0.7;
+  z-index: -1;
+}
+.application.espers.actor.character .header .second-row .stats .stat .label {
+  top: 3px;
+  left: 5px;
+  margin: 0;
+  font-size: 20px;
+}
+.application.espers.actor.character .header .second-row .stats .stat .value {
+  bottom: 2px;
+  left: 8px;
+  margin: 0;
+  font-size: 22px;
+}
+.application.espers.actor.character .header .second-row .stats .stat.strength::before {
+  background-image: url("../../assets/svgs/clubs.svg");
+}
+.application.espers.actor.character .header .second-row .stats .stat.intelligence::before {
+  background-image: url("../../assets/svgs/diamonds.svg");
+}
+.application.espers.actor.character .header .second-row .stats .stat.dexterity::before {
+  background-image: url("../../assets/svgs/hearts.svg");
+}
+.application.espers.actor.character .header .second-row .stats .stat.charisma::before {
+  background-image: url("../../assets/svgs/spades.svg");
+}
+.application.espers.actor.character .header .second-row .char-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 200px;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(208, 71, 71, 0.2509803922);
+  border-radius: 5px;
+  position: relative;
+  height: 30px;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .label {
+  margin: 0;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .bar {
+  display: flex;
+  padding: 0 5px;
+  font-size: 1rem;
+  width: 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .bar .bar-input {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  font-size: 1rem;
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  border: none;
+  outline: 2px solid transparent;
+  color: #f5f0e8;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .bar .bar-input.bar-input {
+  padding: 0;
+  color: #f5f0e8;
+  backdrop-filter: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .bar .bar-input.bar-input:hover, .application.espers.actor.character .header .second-row .char-info .life-bar .bar .bar-input.bar-input:focus {
+  background: rgba(52, 52, 52, 0.062745098);
+  backdrop-filter: blur(9.5px);
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .bar p {
+  align-self: center;
+  margin: 0;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .bar .bar-label {
+  width: 40px;
+  height: 30px;
+  align-content: center;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .progress-bar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  appearance: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 6px;
+  z-index: 1;
+  background: #222;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .progress-bar::-webkit-progress-bar {
+  border: none;
+  background: rgba(229, 78, 78, 0.2509803922);
+  border-radius: 6px;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .progress-bar::-webkit-progress-value {
+  background: #e54e4e;
+  border-radius: 6px;
+}
+.application.espers.actor.character .header .second-row .char-info .life-bar .progress-bar::-moz-progress-bar {
+  background: #e54e4e;
+  border-radius: 6px;
+}
+.application.espers.actor.character .header .second-row .char-info .defense {
+  display: flex;
+  align-items: center;
+  background-color: rgba(71, 161, 209, 0.2509803922);
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+}
+.application.espers.actor.character .header .second-row .char-info .gild {
+  display: flex;
+  align-items: center;
+  background-color: rgba(217, 171, 66, 0.2509803922);
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+}
+.application.espers.actor.character .header .second-row .char-info .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: auto;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .divider {
+  margin: 0;
+  font-size: 20px;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .divider::before, .application.espers.actor.character .header .second-row .char-info .cards .divider::after {
+  border-color: #d9ab42;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe {
+  display: flex;
+  justify-content: space-between;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe p {
+  margin: 0;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe .icon {
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe .icon.clubs {
+  background-image: url("../../assets/svgs/clubs.svg");
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe .icon.diamonds {
+  background-image: url("../../assets/svgs/diamonds.svg");
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe .icon.hearts {
+  background-image: url("../../assets/svgs/hearts.svg");
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe .icon.spades {
+  background-image: url("../../assets/svgs/spades.svg");
+}
+.application.espers.actor.character .header .second-row img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.application.espers.actor.character .header .tird-row {
+  display: flex;
+  gap: 16px;
+}
+
 .application.sheet.espers .window-header {
   background: #d9ab42;
   border-radius: 5px 5px 0 0;

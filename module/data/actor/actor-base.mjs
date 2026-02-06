@@ -15,22 +15,10 @@ export default class EspersActorBase extends foundry.abstract.TypeDataModel {
         });
 
         schema.attributes = new fields.SchemaField({
-            strength: new fields.SchemaField({
-                level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
-                dice: new fields.StringField({ initial: 'd4' }),
-            }),
-            intelligence: new fields.SchemaField({
-                level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
-                dice: new fields.StringField({ initial: 'd4' }),
-            }),
-            charisma: new fields.SchemaField({
-                level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
-                dice: new fields.StringField({ initial: 'd4' }),
-            }),
-            dexterity: new fields.SchemaField({
-                level: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 5 }),
-                dice: new fields.StringField({ initial: 'd4' }),
-            })
+            strength: new fields.NumberField({ ...requiredInteger, initial: 4, min: 4, max: 12 }),
+            intelligence: new fields.NumberField({ ...requiredInteger, initial: 4, min: 4, max: 12 }),
+            charisma: new fields.NumberField({ ...requiredInteger, initial: 4, min: 4, max: 12 }),
+            dexterity: new fields.NumberField({ ...requiredInteger, initial: 4, min: 4, max: 12 }),
         });
 
         schema.level = new fields.NumberField({ ...requiredInteger, initial: 1, min: 0 });

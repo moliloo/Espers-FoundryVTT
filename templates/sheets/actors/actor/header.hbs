@@ -1,0 +1,120 @@
+<header class="header">
+    <div class="first-row">
+        <h1 class="title"><input type='text' name='name' value='{{source.name}}' placeholder='{{localize "ASTRO.actor.name"}}' /></h1>
+        <button>Start Setup</button>
+    </div>
+    <div class="second-row">
+        <div class="stats">
+            <button class="stat strength">
+                <h1 class="value">{{source.system.attributes.strength}}</h1>
+                <h4 class="label">strength</h4>
+            </button>
+            <button class="stat intelligence">
+                <h1 class="value">{{source.system.attributes.intelligence}}</h1>
+                <h4 class="label">intelligence</h4>
+            </button>
+            <button class="stat dexterity">
+                <h1 class="value">{{source.system.attributes.dexterity}}</h1>
+                <h4 class="label">dexterity</h4>
+            </button>
+            <button class="stat charisma">
+                <h1 class="value">{{source.system.attributes.charisma}}</h1>
+                <h4 class="label">charisma</h4>
+            </button>
+        </div>
+        <img src='{{actor.img}}' data-action='editImage' data-edit='img' title='{{actor.name}}' />
+        <div class="char-info">
+            <div class="life-bar">
+                <p class="label"><i class="fa-solid fa-heart"></i> Health</p>
+                <div class="bar">
+                    <input class="bar-input" type="number" name="system.stats.health.value" value="{{source.system.stats.health.value}}">
+                    <p>/</p>
+                    <p class="bar-label">{{source.system.stats.health.max}}</p>
+                </div>
+                <progress class="progress-bar" max="{{source.system.stats.health.max}}" value="{{source.system.stats.health.value}}"></progress>
+            </div>
+
+            <div class="d-flex gap-10">
+                <div class="defense">
+                    <p><i class="fa-solid fa-shield"></i> Defense</p>
+                    <p>{{actor.system.stats.defense}}</p>
+                </div>
+
+                <div class="gild">
+                    <p><i class="fa-solid fa-coins"></i> Gild</p>
+                    <p>{{actor.system.gild}}</p>
+                </div>
+            </div>
+
+            <div class="cards">
+                <h4 class="divider" style="">Fate</h4>
+                <div class="nipe clubs">
+                    <div class="icon clubs"></div>
+                    <p>A</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                    <p>J</p>
+                    <p>Q</p>
+                    <p>K</p>
+                </div>
+                <div class="nipe diamonds">
+                    <div class="icon diamonds"></div>
+                    <p>A</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                    <p>J</p>
+                    <p>Q</p>
+                    <p>K</p>
+                </div>
+                <div class="nipe hearts">
+                    <div class="icon hearts"></div>
+                    <p>A</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                    <p>J</p>
+                    <p>Q</p>
+                    <p>K</p>
+                </div>
+                <div class="nipe spades">
+                    <div class="icon spades"></div>
+                    <p>A</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                    <p>J</p>
+                    <p>Q</p>
+                    <p>K</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tird-row">
+    </div>
+</header>
