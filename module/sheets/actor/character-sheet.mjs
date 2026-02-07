@@ -30,7 +30,36 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         header: {
             id: 'header',
             template: 'systems/espers/templates/sheets/actors/actor/header.hbs'
+        },
+        tabs: {
+            id: 'tabs',
+            template: 'systems/espers/templates/sheets/global/tabs/tab-navigation.hbs'
+        },
+        magicArts: {
+            template: 'systems/espers/templates/sheets/actors/actor/magic-arts.hbs',
+            scrollable: ['.magicArts']
+        },
+        equipment: {
+            template: 'systems/espers/templates/sheets/actors/actor/equipment.hbs',
+            scrollable: ['.notes']
+        },
+        notes: {
+            template: 'systems/espers/templates/sheets/actors/actor/notes.hbs',
+            scrollable: ['.notes']
+        },
+        effects: {
+            template: 'systems/espers/templates/sheets/global/tabs/tab-effects.hbs',
+            scrollable: ['.effects']
         }
+    };
+
+    static TABS = {
+        sheet: [
+            { id: 'magicArts', group: 'character', label: 'ESPERS.Item.tabs.magicArts' },
+            { id: 'equipment', group: 'character', label: 'ESPERS.Item.tabs.equipment' },
+            { id: 'notes', group: 'character', label: 'ESPERS.Item.tabs.notes' },
+            { id: 'effects', group: 'character', label: 'ESPERS.Item.tabs.effects' }
+        ]
     };
 
     async _prepareContext(_options) {
@@ -39,8 +68,8 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             source: this.document.toObject(),
             config: espers,
             fields: this.document.system.schema.fields,
-            effects: this.prepareActiveEffectCategories(this.actor.effects)
-            // tabs: this.prepareTabs(this.constructor.TABS).sheet
+            effects: this.prepareActiveEffectCategories(this.actor.effects),
+            tabs: this.prepareTabs(this.constructor.TABS).sheet
         };
     }
 
@@ -144,5 +173,22 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         const item = this.item;
         const effect = this.getEffectId(event, item);
         effect.update({ disabled: !effect.disabled });
+    }
+
+    prepareTabs(tabsConstructor) {
+        let tabs = {};
+
+        Object.entries(tabsConstructor).forEach(([groupId, config]) => {
+            tabs[groupId] = config.reduce((acc, tab) => {
+                if (!this.tabGroups[tab.group]) this.tabGroups[tab.group] = tab.id;
+                const isActive = this.tabGroups[tab.group] === tab.id;
+                acc[tab.id] = { ...tab, active: isActive, cssClass: isActive ? 'active' : '' };
+                return acc;
+            }, {});
+        });
+
+        if (!game.user.isGM) delete tabs?.sheet?.hooks;
+
+        return tabs;
     }
 }

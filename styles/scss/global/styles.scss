@@ -29,6 +29,8 @@
             height: 1.5rem;
             line-height: 1.5rem;
             top: -0.75rem;
+            left: 50%;
+            transform: translateX(-25%);
             font-size: var(--font-size-14);
             color: light-dark($beige, $dark);
             background: light-dark($dark, $primary-yellow);

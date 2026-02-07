@@ -23,12 +23,16 @@ export default class EspersActorBase extends foundry.abstract.TypeDataModel {
 
         schema.level = new fields.NumberField({ ...requiredInteger, initial: 1, min: 0 });
 
-        (schema.moving = new fields.SchemaField({
+        schema.moving = new fields.SchemaField({
             level: new fields.NumberField({ ...requiredInteger, initial: 40, min: 0 }),
             bonus: new fields.NumberField({ ...requiredInteger, initial: 0 })
-        })),
-            (schema.biography = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' }));
-        schema.carryingCapacity = new fields.NumberField({ ...requiredInteger, initial: 0 });
+        }),
+
+        schema.biography = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' });
+
+        schema.notes = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' });
+
+        schema.carrying = new fields.NumberField({ ...requiredInteger, initial: 0 });
 
         return schema;
     }

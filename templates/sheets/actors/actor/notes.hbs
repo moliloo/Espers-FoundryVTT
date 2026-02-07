@@ -1,0 +1,33 @@
+<section
+    class='tab {{tabs.notes.cssClass}} {{tabs.notes.id}}'
+    data-tab='{{tabs.notes.id}}'
+    data-group='{{tabs.notes.group}}'
+>
+    <div class='sheet-section sheet-description'>
+        <div class="section-header">
+            Biography
+        </div>
+        {{formInput
+            fields.biography
+            value=source.system.biography
+            enriched=biography
+            toggled=true
+            compact=true
+            classes='slim'
+        }}
+    </div>
+
+    <div class='sheet-section sheet-description'>
+        <div class="section-header">
+            {{localize tabs.notes.label}}
+        </div>
+        {{formInput
+            fields.notes
+            value=source.system.notes
+            enriched=notes
+            toggled=true
+            compact=true
+            classes='slim'
+        }}
+    </div>
+</section>

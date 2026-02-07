@@ -368,6 +368,18 @@
   gap: 16px;
 }
 
+.application.espers.actor.character .tab.notes.active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+.application.espers.actor.character .tab.notes.active .sheet-section.sheet-description {
+  display: flex;
+  max-height: 14rem;
+  min-height: 7rem;
+}
+
 .application.sheet.espers .window-header {
   background: #d9ab42;
   border-radius: 5px 5px 0 0;
@@ -523,6 +535,8 @@
   height: 1.5rem;
   line-height: 1.5rem;
   top: -0.75rem;
+  left: 50%;
+  transform: translateX(-25%);
   font-size: var(--font-size-14);
   color: light-dark(#f5f0e8, #222);
   background: light-dark(#222, #d9ab42);

@@ -1,0 +1,16 @@
+@import '../../utils/color.scss';
+
+.application.espers.actor.character {
+    .tab.notes.active {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow-y: auto;
+
+        .sheet-section.sheet-description {
+            display: flex;
+            max-height: 14rem;
+            min-height: 7rem;
+        }
+    }
+}

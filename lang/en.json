@@ -28,7 +28,10 @@
                 "abilities": "Abilities",
                 "skills": "Skills",
                 "settings": "Settings",
-                "effects": "Effects"
+                "effects": "Effects",
+                "magicArts": "Magic Arts",
+                "notes": "Notes",
+                "equipment": "Equipment"
             },
             "rarity": {
                 "common": "Common",
