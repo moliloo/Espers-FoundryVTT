@@ -372,12 +372,15 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: auto;
 }
 .application.espers.actor.character .tab.notes.active .sheet-section.sheet-description {
   display: flex;
   max-height: 14rem;
   min-height: 7rem;
+}
+.application.espers.actor.character .tab.notes.active,
+.application.espers.actor.character .tab.equipment.active {
+  overflow-y: auto;
 }
 
 .application.sheet.espers .window-header {
@@ -578,6 +581,59 @@
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
+}
+
+.application.sheet.espers .items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.application.sheet.espers .items-list .item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.application.sheet.espers .items-list .item:first-child {
+  padding-top: 20px;
+}
+.application.sheet.espers .items-list .item img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.application.sheet.espers .items-list .item .item-label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 0px;
+}
+.application.sheet.espers .items-list .item .item-label .item-name {
+  margin: 0;
+}
+.application.sheet.espers .items-list .item .item-info {
+  margin: 0 auto;
+}
+.application.sheet.espers .items-list .item .item-info p {
+  margin: 0;
+}
+.application.sheet.espers .items-list .item .tags {
+  display: flex;
+  gap: 5px;
+}
+.application.sheet.espers .items-list .item .tags .tag {
+  margin: 0;
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid light-dark(#222, #d9ab42);
+  background-color: light-dark(rgba(52, 52, 52, 0.1254901961), rgba(217, 171, 66, 0.1254901961));
+  color: light-dark(#222, #d9ab42);
+  font-size: var(--font-size-12);
+}
+.application.sheet.espers .items-list .item .controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=espers.css.map */

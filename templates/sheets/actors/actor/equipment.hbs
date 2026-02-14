@@ -3,5 +3,36 @@
     data-tab='{{tabs.equipment.id}}'
     data-group='{{tabs.equipment.group}}'
 >
-    <h1>Equipment</h1>
+    <div class="sheet-section">
+        <div class="section-header">
+            Weapons
+        </div>
+
+        <ul class="items-list">
+            {{#each @root.inventory.weapons as |weapon|}}
+                <li class="item" data-item-uuid="{{weapon.uuid}}">
+                    <img src="{{weapon.img}}" alt="{{weapon.name}}">
+                    <div class="item-label">
+                        <p class="item-name">{{weapon.name}}</p>
+                        <div class="tags">
+                            <p class="tag">{{weapon.system.type}}</p>
+                            <p class="tag">{{weapon.system.range}}</p>
+                            <p class="tag">{{weapon.system.variant}}</p>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <p>
+                            {{lookup (lookup @root.config.weaponVariant weapon.system.variant) 'effect'}}
+                            Dmg Bonus
+                        </p>
+                    </div>
+                    <div class="controls">
+                        <a data-action="toggleEquipItem"><i class="fa-solid fa-hand"></i></a>
+                        <a data-action="editDoc"><i class="fa-solid fa-edit"></i></a>
+                        <a data-action="deleteItem"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
 </section>

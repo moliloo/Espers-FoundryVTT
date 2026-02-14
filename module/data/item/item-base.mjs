@@ -4,7 +4,7 @@ export default class EspersItemBase extends foundry.abstract.TypeDataModel {
     static defineSchema() {
         const requiredInteger = { required: true, nullable: false, integer: true };
         const schema = {
-            eqquiped: new fields.BooleanField({ initial: false }),
+            equipped: new fields.BooleanField({ initial: false }),
             rarity: new fields.StringField({ required: true, blank: true, initial: 'common' }),
             price: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
             size: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),

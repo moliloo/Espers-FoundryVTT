@@ -1,4 +1,5 @@
 import { espers } from '../../helpers/config.mjs';
+import { getDocFromElement } from '../../helpers/utils.mjs';
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -13,7 +14,10 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             createEffect: this.createActiveEffect,
             editEffect: this.editActiveEffect,
             deleteEffect: this.deleteActiveEffect,
-            toggleEffect: this.toggleActiveEffect
+            toggleEffect: this.toggleActiveEffect,
+            deleteItem: this.#deleteItem,
+            toggleEquipItem: this.#toggleEquipItem,
+            editDoc: this.editDoc,
         },
         form: {
             handler: this.updateForm,
@@ -69,13 +73,24 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             config: espers,
             fields: this.document.system.schema.fields,
             effects: this.prepareActiveEffectCategories(this.actor.effects),
-            tabs: this.prepareTabs(this.constructor.TABS).sheet
+            tabs: this.prepareTabs(this.constructor.TABS).sheet,
+            inventory: {
+                artifacts: this.document.itemTypes.artifacts.sort((a, b) => a.sort - b.sort),
+                base: this.document.itemTypes.base.sort((a, b) => a.sort - b.sort),
+                consumables: this.document.itemTypes.consumable.sort((a, b) => a.sort - b.sort),
+                equipment: this.document.itemTypes.equipment.sort((a, b) => a.sort - b.sort),
+                gems: this.document.itemTypes.gems.sort((a, b) => a.sort - b.sort),
+                general: this.document.itemTypes.general.sort((a, b) => a.sort - b.sort),
+                magicArts: this.document.itemTypes.magicArts.sort((a, b) => a.sort - b.sort),
+                throwable: this.document.itemTypes.throwable.sort((a, b) => a.sort - b.sort),
+                weapons: this.document.itemTypes.weapon.sort((a, b) => a.sort - b.sort),
+            }
         };
     }
 
     async _onDrop(event) {
         event.preventDefault();
-        const data = TextEditor.getDragEventData(event);
+        const data =  foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
         if (!data || !data.type) return;
 
         const item = await Item.fromDropData(data);
@@ -190,5 +205,49 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         if (!game.user.isGM) delete tabs?.sheet?.hooks;
 
         return tabs;
+    }
+
+    static async #deleteItem(event, target) {
+        const doc = await getDocFromElement(target.closest('.item'));
+        if (!event.shiftKey) {
+            const confirmed = await foundry.applications.api.DialogV2.confirm({
+                window: {
+                    title: game.i18n.format('DAGGERHEART.APPLICATIONS.DeleteConfirmation.title', {
+                        type: game.i18n.localize('TYPES.Actor.party'),
+                        name: doc.name
+                    })
+                },
+                content: game.i18n.format('DAGGERHEART.APPLICATIONS.DeleteConfirmation.text', { name: doc.name })
+            });
+
+            if (!confirmed) return;
+        }
+
+        this.document.deleteEmbeddedDocuments('Item', [doc.id]);
+    }
+
+    static async editDoc(_event, target) {
+        const element = target.closest('[data-item-uuid]');
+        const doc = (await foundry.utils.fromUuid(element.dataset.itemUuid)) ?? null;
+        if (doc) return doc.sheet.render({ force: true });
+    }
+
+    static async #toggleEquipItem(_event, button) {
+        const item = await getDocFromElement(button);
+        if (!item) return;
+        if (item.system.equipped) {
+            await item.update({ 'system.equipped': false });
+            return;
+        }
+
+        switch (item.type) {
+            case 'weapon':
+                const weapon = this.document.itemTypes.weapon.find(weapon => weapon.system.equipped === true);
+
+                if (weapon && (item.id !== weapon.id)) await weapon.update({ 'system.equipped': false });
+
+                await item.update({ 'system.equipped': true });
+                break;
+        }
     }
 }
