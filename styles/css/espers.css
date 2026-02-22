@@ -368,6 +368,18 @@
   gap: 16px;
 }
 
+.theme-dark .application.sheet.espers .tab.equipment.active .equipped-section {
+  background-image: url("../../assets/images/background/dark-parchment.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.theme-light .application.sheet.espers .tab.equipment.active .equipped-section {
+  background-image: url("../../assets/images/background/light-parchment.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .application.espers.actor.character .tab.notes.active {
   display: flex;
   flex-direction: column;
@@ -377,6 +389,16 @@
   display: flex;
   max-height: 14rem;
   min-height: 7rem;
+}
+.application.espers.actor.character .tab.equipment.active {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+}
+.application.espers.actor.character .tab.equipment.active .equipped-section {
+  position: absolute;
+  right: -100%;
 }
 .application.espers.actor.character .tab.notes.active,
 .application.espers.actor.character .tab.equipment.active {
@@ -611,6 +633,8 @@
   margin: 0;
 }
 .application.sheet.espers .items-list .item .item-info {
+  display: flex;
+  gap: 10px;
   margin: 0 auto;
 }
 .application.sheet.espers .items-list .item .item-info p {

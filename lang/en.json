@@ -44,6 +44,12 @@
             "size": "Size",
             "price": "Price",
             "quantity": "Quantity"
+        },
+        "Messages": {
+            "delete": {
+                "title": "Delete {type} - {name}",
+                "text": "Are you sure you want to delete {name}?"
+            }
         }
     }
 }

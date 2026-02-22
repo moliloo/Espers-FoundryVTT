@@ -239,3 +239,26 @@ espers.equipmentType = {
         label: 'lense'
     }
 };
+
+espers.tags = {
+    weapon: [
+        'type',
+        'range',
+        'variant',
+        'rarity'
+    ],
+    equipment: [
+        'type',
+        'rarity'
+    ],
+    gems: [
+        'rarity',
+    ],
+    general: [
+        'rarity',
+    ],
+    gems: [
+        'type',
+        'rarity',
+    ]
+}

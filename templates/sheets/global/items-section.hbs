@@ -1,0 +1,61 @@
+<div class="sheet-section">
+    <div class="section-header">
+        {{localize title}}
+    </div>
+
+    <ul class="items-list">
+        {{#each collection as |item|}}
+            <li class="item" data-item-uuid="{{item.uuid}}">
+                <img src="{{item.img}}" alt="{{item.name}}">
+                <div class="item-label">
+                    <p class="item-name">{{item.name}}</p>
+                    <div class="tags">
+                        {{#each (lookup @root.config.tags ../tagType) as |tag|}}
+                            <p class="tag">{{lookup item.system tag}}</p>
+                        {{/each}}
+                    </div>
+                </div>
+                {{#if (eq item.type 'weapon')}}
+                    <div class="item-info">
+                        <p>
+                            {{lookup (lookup @root.config.weaponVariant weapon.system.variant) 'effect'}}
+                            Dmg Bonus
+                        </p>
+                    </div>
+                {{/if}}
+                <div class="item-info">
+                    {{#if item.system.price}}
+                        <p>
+                            <i class="fa-solid fa-coins"></i>
+                            {{item.system.price}}
+                        </p>
+                    {{/if}}
+                    {{#unless (eq item.type 'weapon')}}
+                        <p data-tooltip='{{localize "ESPERS.Tooltip.quantity"}}'>
+                            x
+                            {{item.system.quantity}}
+                        </p>
+                        <p data-tooltip='{{localize "ESPERS.Tooltip.size"}}'>
+                            <i class='fa-solid fa-up-right-and-down-left-from-center'></i>
+                            {{item.system.size}}
+                        </p>
+                    {{/unless}}
+                </div>
+                
+                <div class="controls">
+                    {{#if (or (eq item.type 'weapon') (eq item.type 'equipment'))}}
+                        <a data-tooltip="Equip/Unequip" data-action="toggleEquipItem"><i class="{{#if item.system.equipped}}fa-solid{{else}}fa-regular{{/if}} fa-hand"></i></a>
+                    {{/if}}
+                    {{#if (or (eq item.type 'consumable') (eq item.type 'gems') (eq item.type 'artifacts'))}}
+                        <a data-tooltip="Consume" data-action="consumeItem"><i class="fa-solid fa-cookie-bite"></i></a>
+                    {{/if}}
+                    {{#if (eq item.type 'throwable')}}
+                        <a data-tooltip="Throw" data-action="toggleEquipItem"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+                    {{/if}}
+                    <a data-tooltip="Edit" data-action="editDoc"><i class="fa-solid fa-edit"></i></a>
+                    <a data-tooltip="Delete" data-action="deleteItem"><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</div>

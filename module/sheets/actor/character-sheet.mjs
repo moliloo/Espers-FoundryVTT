@@ -17,6 +17,7 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             toggleEffect: this.toggleActiveEffect,
             deleteItem: this.#deleteItem,
             toggleEquipItem: this.#toggleEquipItem,
+            consumeItem: this.#consumeItem,
             editDoc: this.editDoc,
         },
         form: {
@@ -45,7 +46,7 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         },
         equipment: {
             template: 'systems/espers/templates/sheets/actors/actor/equipment.hbs',
-            scrollable: ['.notes']
+            scrollable: ['.equipment']
         },
         notes: {
             template: 'systems/espers/templates/sheets/actors/actor/notes.hbs',
@@ -212,12 +213,12 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         if (!event.shiftKey) {
             const confirmed = await foundry.applications.api.DialogV2.confirm({
                 window: {
-                    title: game.i18n.format('DAGGERHEART.APPLICATIONS.DeleteConfirmation.title', {
-                        type: game.i18n.localize('TYPES.Actor.party'),
+                    title: game.i18n.format('ESPERS.Messages.delete.title', {
+                        type: game.i18n.localize(`TYPES.Item.${doc.type}`),
                         name: doc.name
                     })
                 },
-                content: game.i18n.format('DAGGERHEART.APPLICATIONS.DeleteConfirmation.text', { name: doc.name })
+                content: game.i18n.format('ESPERS.Messages.delete.text', { name: doc.name })
             });
 
             if (!confirmed) return;
@@ -248,6 +249,25 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
 
                 await item.update({ 'system.equipped': true });
                 break;
+            case 'equipment':
+                const equipment = this.document.itemTypes.equipment.find(equipment => equipment.system.equipped === true && equipment.system.type === item.system.type);
+
+                if (equipment && (item.id !== equipment.id)) await equipment.update({ 'system.equipped': false });
+
+                await item.update({ 'system.equipped': true });
+                break;
         }
+    }
+
+    static async #consumeItem(_event, button)  {
+        const item = await getDocFromElement(button);
+        if (!item) return;
+
+        if (item.system.quantity >= 1) {
+            await item.update({ 'system.quantity': item.system.quantity-- });
+        } else {
+            this.document.deleteEmbeddedDocuments('Item', [item.id]);
+        }
+
     }
 }

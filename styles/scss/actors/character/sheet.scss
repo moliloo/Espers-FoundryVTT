@@ -1,5 +1,21 @@
 @import '../../utils/color.scss';
 
+.theme-dark {
+    .application.sheet.espers .tab.equipment.active .equipped-section {
+        background-image: url('../../assets/images/background/dark-parchment.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.theme-light {
+    .application.sheet.espers .tab.equipment.active .equipped-section {
+        background-image: url('../../assets/images/background/light-parchment.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
 .application.espers.actor.character {
     .tab.notes.active {
         display: flex;
@@ -10,6 +26,19 @@
             display: flex;
             max-height: 14rem;
             min-height: 7rem;
+        }
+    }
+
+    .tab.equipment.active {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        height: 100%;
+
+        .equipped-section {
+            position: absolute;
+            right: -100%;
+
         }
     }
 

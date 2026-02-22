@@ -46,7 +46,7 @@ export default class EspersGeneralSheet extends EspersItemSheet {
             tabs: this.prepareTabs(this.constructor.TABS).sheet,
             description: this.document.system.description,
             fields: this.document.system.schema.fields,
-            effects: this.prepareActiveEffectCategories(this.item.effects)
+            effects: this.prepareActiveEffectCategories(this.item.effects),
         };
     }
 }

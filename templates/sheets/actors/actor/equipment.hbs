@@ -3,36 +3,49 @@
     data-tab='{{tabs.equipment.id}}'
     data-group='{{tabs.equipment.group}}'
 >
-    <div class="sheet-section">
-        <div class="section-header">
-            Weapons
-        </div>
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.weapon'
+        collection=@root.inventory.weapons
+        tagType='weapon'
+    }}
 
-        <ul class="items-list">
-            {{#each @root.inventory.weapons as |weapon|}}
-                <li class="item" data-item-uuid="{{weapon.uuid}}">
-                    <img src="{{weapon.img}}" alt="{{weapon.name}}">
-                    <div class="item-label">
-                        <p class="item-name">{{weapon.name}}</p>
-                        <div class="tags">
-                            <p class="tag">{{weapon.system.type}}</p>
-                            <p class="tag">{{weapon.system.range}}</p>
-                            <p class="tag">{{weapon.system.variant}}</p>
-                        </div>
-                    </div>
-                    <div class="item-info">
-                        <p>
-                            {{lookup (lookup @root.config.weaponVariant weapon.system.variant) 'effect'}}
-                            Dmg Bonus
-                        </p>
-                    </div>
-                    <div class="controls">
-                        <a data-action="toggleEquipItem"><i class="fa-solid fa-hand"></i></a>
-                        <a data-action="editDoc"><i class="fa-solid fa-edit"></i></a>
-                        <a data-action="deleteItem"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ul>
-    </div>
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.equipment'
+        collection=@root.inventory.equipment
+        tagType='equipment'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.consumable'
+        collection=@root.inventory.consumables
+        tagType='consumable'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.throwable'
+        collection=@root.inventory.throwable
+        tagType='throwable'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.artifacts'
+        collection=@root.inventory.artifacts
+        tagType='artifacts'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.gems'
+        collection=@root.inventory.gems
+        tagType='gems'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.general'
+        collection=@root.inventory.general
+        tagType='general'
+    }}
+
+    <aside class="equipped-section">
+        teste
+    </aside>
 </section>
