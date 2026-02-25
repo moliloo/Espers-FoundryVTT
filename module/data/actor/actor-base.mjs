@@ -21,7 +21,7 @@ export default class EspersActorBase extends foundry.abstract.TypeDataModel {
             dexterity: new fields.NumberField({ ...requiredInteger, initial: 4, min: 4, max: 12 }),
         });
 
-        schema.level = new fields.NumberField({ ...requiredInteger, initial: 1, min: 0 });
+        schema.level = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 });
 
         schema.moving = new fields.SchemaField({
             level: new fields.NumberField({ ...requiredInteger, initial: 40, min: 0 }),

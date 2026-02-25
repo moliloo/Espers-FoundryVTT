@@ -1,5 +1,7 @@
 import { espers } from '../../helpers/config.mjs';
 import { getDocFromElement } from '../../helpers/utils.mjs';
+import EspersCharSetup from '../../setup/char-setup.mjs';
+import EspersCharLevelup from '../../setup/char-level-up.mjs';
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -18,6 +20,7 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             deleteItem: this.#deleteItem,
             toggleEquipItem: this.#toggleEquipItem,
             consumeItem: this.#consumeItem,
+            levelManagement: this.#levelManagement,
             editDoc: this.editDoc,
         },
         form: {
@@ -269,5 +272,12 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             this.document.deleteEmbeddedDocuments('Item', [item.id]);
         }
 
+    }
+
+    static async #levelManagement() {
+        if (this.document.system.level < 1)
+            return new EspersCharSetup(this.document).render({ force: true });
+
+        new EspersCharLevelup(this.document).render({ force: true });
     }
 }

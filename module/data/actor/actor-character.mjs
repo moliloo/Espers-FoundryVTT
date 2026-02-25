@@ -9,18 +9,28 @@ export default class EspersCharacter extends EspersActorBase {
 
         schema.gild = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 });
 
-        schema.aether = new fields.SchemaField({
-            fate: new fields.SchemaField({
-                value: new fields.NumberField({ ...requiredInteger, initial: 40, min: 0 }),
-                max: new fields.NumberField({ ...requiredInteger, initial: 40 })
-            }),
-            pile: new fields.SchemaField({
-                value: new fields.NumberField({ ...requiredInteger, initial: 40, min: 0 }),
-                max: new fields.NumberField({ ...requiredInteger, initial: 40 })
-            }),
-            defense: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
+        schema.cards = new fields.SchemaField({
+            aether: new fields.ArrayField(new fields.EmbeddedDataField(FateCard)),
+            fate: new fields.ArrayField(new fields.EmbeddedDataField(FateCard)),
+            hand: new fields.ArrayField(new fields.EmbeddedDataField(FateCard)),
+            discard: new fields.ArrayField(new fields.EmbeddedDataField(FateCard)),
         });
 
         return schema;
+    }
+}
+
+class FateCard extends foundry.abstract.DataModel {
+  static defineSchema() {
+        const fields = foundry.data.fields;
+        return {
+            id: new fields.StringField({ required: true }),
+            label: new fields.StringField({ required: true }),
+            img: new fields.FilePathField({
+                required: true,
+                categories: ['IMAGE'],
+                base64: false,
+            }),
+        };
     }
 }

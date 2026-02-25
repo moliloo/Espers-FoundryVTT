@@ -1,0 +1,142 @@
+<section class="char-setup">
+    <div class="setup-section">
+        <h1>Magic Arts</h1>
+        {{#unless setup.magicArts.name}}
+            <div class="drag-area magic-arts-drop">
+                <p>Drag a Magic Art</p>
+            </div>
+        {{/unless}}
+        {{#if setup.magicArts.name}}
+            <div class="item-dropped">
+                <p>{{setup.magicArts.name}}</p>
+            </div>
+        {{/if}}
+    </div>
+    <div class="setup-section stat-section">
+        <h1>Stat</h1>
+
+        <div class="stat-group">
+            <div class="stat-container">
+                <p>Avarage</p>
+                <ul class="stat-list">
+                {{#each statStack.avarage as |stat|}}
+                    <li>{{stat}}</li>
+                {{/each}}
+                </ul>
+            </div>
+
+            <div class="stat-container">
+                <p>Focused</p>
+                <ul class="stat-list">
+                {{#each statStack.focused as |stat|}}
+                    <li>{{stat}}</li>
+                {{/each}}
+                </ul>
+            </div>
+
+            <div class="stat-container">
+                <p>Specialty</p>
+                <ul class="stat-list">
+                {{#each statStack.specialty as |stat|}}
+                    <li>{{stat}}</li>
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="stat-inputs">
+            <div class="stat">
+                <label>Strength</label>
+                <input type="number" name="stat.strength" value="{{setup.stat.strength}}">
+            </div>
+            <div class="stat">
+                <label>Intelligence</label>
+                <input type="number" name="stat.intelligence" value="{{setup.stat.intelligence}}">
+            </div>
+            <div class="stat">
+                <label>Dexterity</label>
+                <input type="number" name="stat.dexterity" value="{{setup.stat.dexterity}}">
+            </div>
+            <div class="stat">
+                <label>Charisma</label>
+                <input type="number" name="stat.charisma" value="{{setup.stat.charisma}}">
+            </div>
+        </div>
+    </div>
+    <div class="setup-section">
+        <h1>Weapon</h1>
+        {{#unless setup.weapon.name}}
+            <div class="drag-area weapon-drop">
+                <p>Drag a Weapon</p>
+            </div>
+        {{/unless}}
+        {{#if setup.weapon.name}}
+            <div class="item-dropped">
+                <img src="{{setup.weapon.img}}">
+                <p>{{setup.weapon.name}}</p>
+            </div>
+        {{/if}}
+    </div>
+    <div class="setup-section">
+        <h1>Generating Fate</h1>
+        <button class="fate-generator" data-action="generateFate">Generate Fate</button>
+        {{#if setup.fate}}
+        <div class="card-section">
+
+            <div class="card-list green">
+                <h4>Strenght</h4>
+                {{#each setup.fate as |fate|}}
+                    {{#if (eq fate.suit 'clubs')}}
+                        {{#if (gte fate.value 10)}}
+                            <p>{{fate.rank}}</p>
+                        {{else}}
+                            <p>{{fate.value}}</p>
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="card-list blue">
+                <h4>Intelligence</h4>
+                {{#each setup.fate as |fate|}}
+                    {{#if (eq fate.suit 'diamonds')}}
+                        {{#if (gte fate.value 10)}}
+                            <p>{{fate.rank}}</p>
+                        {{else}}
+                            <p>{{fate.value}}</p>
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="card-list red">
+                <h4>Dexterity</h4>
+                {{#each setup.fate as |fate|}}
+                    {{#if (eq fate.suit 'hearts')}}
+                        {{#if (gte fate.value 10)}}
+                            <p>{{fate.rank}}</p>
+                        {{else}}
+                            <p>{{fate.value}}</p>
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="card-list purple">
+                <h4>Charisma</h4>
+                {{#each setup.fate as |fate|}}
+                    {{#if (eq fate.suit 'spades')}}
+                        {{#if (gte fate.value 10)}}
+                            <p>{{fate.rank}}</p>
+                        {{else}}
+                            <p>{{fate.value}}</p>
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    <button class="fate-generator" data-action="finishSetup">Finish Setup</button>
+
+</section>

@@ -1,7 +1,18 @@
 <header class="header">
     <div class="first-row">
         <h1 class="title"><input type='text' name='name' value='{{source.name}}' placeholder='{{localize "ASTRO.actor.name"}}' /></h1>
-        <button>Start Setup</button>
+        <button data-action="levelManagement">
+            {{#if (gte source.system.level 1)}}
+                Level Up
+            {{else}}
+                Start Setup
+            {{/if}}
+        </button>
+        {{#if (gte source.system.level 1)}}
+        <h4>
+            Level {{source.system.level}}
+        </h4>
+        {{/if}}
     </div>
     <div class="second-row">
         <div class="stats">

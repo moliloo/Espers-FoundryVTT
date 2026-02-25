@@ -1,0 +1,157 @@
+@import '../utils/color.scss';
+
+.application.dialog.espers .window-content {
+    .setup-section {
+        margin-top: 20px;
+
+        &:first-child {
+            margin-top: 0px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+        }
+    }
+
+    .drag-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 40px;
+        border: 1px dashed light-dark($dark-40, $beige-40);
+        border-radius: 3px;
+        color: light-dark($dark-40, $beige-40);
+        padding: 5px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .item-dropped {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 40px;
+        border: 1px solid light-dark($dark, $primary-yellow);
+        background: light-dark($dark-10, $primary-yellow-10);
+        border-radius: 3px;
+        padding: 5px;
+
+        img {
+            border-radius: 3px;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .stat-group {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .stat-inputs {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        margin-top: 10px;
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                margin: 0;
+            }
+
+            input {
+                text-align: center;
+                width: 6ch;
+            }
+        }
+    }
+
+    .stat-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: light-dark($dark-10, $beige-10);
+        border-radius: 6px;
+        padding: 10px;
+
+        p {
+            margin: 0;
+        }
+
+        .stat-list {
+            display: flex;
+            list-style-type: none;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 0;
+            }
+        }
+    }
+
+    .card-section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+        
+        .card-list {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            align-items: center;
+
+            h4 {
+                margin: 0;
+                width: 100%;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            &.green {
+                background: $green-40;
+            }
+
+            &.red {
+                background: $red-40;
+            }
+
+            &.blue {
+                background: $blue-40;
+            }
+
+            &.purple {
+                background: $purple-40;
+            }
+        }
+    }
+
+    .fate-generator {
+        place-self: anchor-center;
+        margin-bottom: 20px;
+    }
+}

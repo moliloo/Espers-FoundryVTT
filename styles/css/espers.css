@@ -146,6 +146,13 @@
   gap: 10px;
   align-items: center;
 }
+.application.espers.actor.character .header .first-row button {
+  width: 15ch;
+}
+.application.espers.actor.character .header .first-row h4 {
+  margin: 0;
+  width: 8ch;
+}
 .application.espers.actor.character .header .first-row .title {
   line-height: 0;
   margin: 0;
@@ -658,6 +665,135 @@
   align-items: center;
   gap: 10px;
   margin-left: auto;
+}
+
+.application.dialog.espers .window-content .setup-section {
+  margin-top: 20px;
+}
+.application.dialog.espers .window-content .setup-section:first-child {
+  margin-top: 0px;
+}
+.application.dialog.espers .window-content .setup-section h1 {
+  font-size: 28px;
+  text-align: center;
+}
+.application.dialog.espers .window-content .drag-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  border: 1px dashed light-dark(rgba(52, 52, 52, 0.2509803922), rgba(245, 240, 232, 0.2509803922));
+  border-radius: 3px;
+  color: light-dark(rgba(52, 52, 52, 0.2509803922), rgba(245, 240, 232, 0.2509803922));
+  padding: 5px;
+}
+.application.dialog.espers .window-content .drag-area p {
+  margin: 0;
+}
+.application.dialog.espers .window-content .item-dropped {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid light-dark(#222, #d9ab42);
+  background: light-dark(rgba(52, 52, 52, 0.062745098), rgba(217, 171, 66, 0.062745098));
+  border-radius: 3px;
+  padding: 5px;
+}
+.application.dialog.espers .window-content .item-dropped img {
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.application.dialog.espers .window-content .item-dropped p {
+  margin: 0;
+}
+.application.dialog.espers .window-content .stat-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.application.dialog.espers .window-content .stat-inputs {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.application.dialog.espers .window-content .stat-inputs .stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.application.dialog.espers .window-content .stat-inputs .stat label {
+  margin: 0;
+}
+.application.dialog.espers .window-content .stat-inputs .stat input {
+  text-align: center;
+  width: 6ch;
+}
+.application.dialog.espers .window-content .stat-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: light-dark(rgba(52, 52, 52, 0.062745098), rgba(245, 240, 232, 0.062745098));
+  border-radius: 6px;
+  padding: 10px;
+}
+.application.dialog.espers .window-content .stat-container p {
+  margin: 0;
+}
+.application.dialog.espers .window-content .stat-container .stat-list {
+  display: flex;
+  list-style-type: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+.application.dialog.espers .window-content .stat-container .stat-list li {
+  margin: 0;
+}
+.application.dialog.espers .window-content .card-section {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.application.dialog.espers .window-content .card-section .card-list {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+}
+.application.dialog.espers .window-content .card-section .card-list h4 {
+  margin: 0;
+  width: 100%;
+}
+.application.dialog.espers .window-content .card-section .card-list p {
+  margin: 0;
+}
+.application.dialog.espers .window-content .card-section .card-list.green {
+  background: rgba(61, 136, 130, 0.2509803922);
+}
+.application.dialog.espers .window-content .card-section .card-list.red {
+  background: rgba(229, 78, 78, 0.2509803922);
+}
+.application.dialog.espers .window-content .card-section .card-list.blue {
+  background: rgba(78, 176, 230, 0.2509803922);
+}
+.application.dialog.espers .window-content .card-section .card-list.purple {
+  background: rgba(122, 107, 180, 0.2509803922);
+}
+.application.dialog.espers .window-content .fate-generator {
+  place-self: anchor-center;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=espers.css.map */
