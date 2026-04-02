@@ -44,7 +44,8 @@
         "Tooltip": {
             "size": "Size",
             "price": "Price",
-            "quantity": "Quantity"
+            "quantity": "Quantity",
+            "changeEquip": "Change Equipment"
         },
         "Messages": {
             "delete": {

@@ -17,4 +17,8 @@ export async function registerHandelbarHelpers() {
     Handlebars.registerHelper("isInFate", function(card, fateCards) {
       return fateCards.some(f => f.id === card.id );
     });
+
+    Handlebars.registerHelper('findEquipped', function(equipmentList, type) {
+      return equipmentList.find(e => e.system.type === type && e.system.equipped);
+    });
 }

@@ -12,6 +12,7 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         tag: 'form',
         classes: ['espers', 'sheet', 'actor', 'character'],
         position: { width: 600, height: 660 },
+        window: { resizable: true },
         actions: {
             editImage: this.#onEditImage,
             createEffect: this.createActiveEffect,

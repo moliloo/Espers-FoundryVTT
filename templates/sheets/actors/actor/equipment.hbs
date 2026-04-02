@@ -3,5 +3,25 @@
     data-tab='{{tabs.equipment.id}}'
     data-group='{{tabs.equipment.group}}'
 >
-<h1>Teste</h1>
+  {{#each config.equipmentType as |equipmentType|}}
+    <div class="sheet-section">
+      <div class="section-header">
+        {{localize equipmentType.label}}
+      </div>
+
+      {{#with (findEquipped @root.inventory.equipment equipmentType.value) as |item|}}
+        <div class="equipped-item" data-tooltip="{{item.system.description}}">
+          <img src="{{item.img}}" alt="">
+          <p>{{item.name}}</p>
+          <div class="controls">
+            {{!--
+            <a data-tooltip="{{localize 'ESPERS.Tooltip.changeEquip'}}"=""><i class="fa-solid fa-arrow-down-up-across-line"></i></a>
+            --}}
+          </div>
+        </div>
+      {{else}}
+      -
+      {{/with}}
+    </div>
+  {{/each}}
 </section>

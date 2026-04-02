@@ -130,6 +130,25 @@
   margin-top: 20px;
 }
 
+.application.espers.actor.character .tab.equipment.active .sheet-section .equipped-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+.application.espers.actor.character .tab.equipment.active .sheet-section .equipped-item img {
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.application.espers.actor.character .tab.equipment.active .sheet-section .equipped-item p {
+  margin: 0;
+}
+
 .application.espers.actor.character .d-flex {
   display: flex;
 }
@@ -410,17 +429,32 @@
   max-height: 14rem;
   min-height: 7rem;
 }
-.application.espers.actor.character .tab.equipment.active {
+.application.espers.actor.character .tab.inventory.active {
   display: flex;
   flex-direction: column;
   gap: 40px;
   height: 100%;
 }
-.application.espers.actor.character .tab.equipment.active .equipped-section {
+.application.espers.actor.character .tab.inventory.active .equipped-section {
   position: absolute;
   right: -100%;
 }
+.application.espers.actor.character .tab.equipment.active {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 100%;
+}
+.application.espers.actor.character .tab.equipment.active .sheet-section {
+  max-width: calc(50% - 20px);
+  min-height: 60px;
+}
+.application.espers.actor.character .tab.equipment.active .sheet-section .item {
+  padding-top: 20px;
+}
 .application.espers.actor.character .tab.notes.active,
+.application.espers.actor.character .tab.inventory.active,
 .application.espers.actor.character .tab.equipment.active {
   overflow-y: auto;
 }
