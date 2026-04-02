@@ -52,6 +52,10 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             template: 'systems/espers/templates/sheets/actors/actor/equipment.hbs',
             scrollable: ['.equipment']
         },
+        inventory: {
+            template: 'systems/espers/templates/sheets/actors/actor/inventory.hbs',
+            scrollable: ['.inventory']
+        },
         notes: {
             template: 'systems/espers/templates/sheets/actors/actor/notes.hbs',
             scrollable: ['.notes']
@@ -66,6 +70,7 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
         sheet: [
             { id: 'magicArts', group: 'character', label: 'ESPERS.Item.tabs.magicArts' },
             { id: 'equipment', group: 'character', label: 'ESPERS.Item.tabs.equipment' },
+            { id: 'inventory', group: 'character', label: 'ESPERS.Item.tabs.inventory' },
             { id: 'notes', group: 'character', label: 'ESPERS.Item.tabs.notes' },
             { id: 'effects', group: 'character', label: 'ESPERS.Item.tabs.effects' }
         ]

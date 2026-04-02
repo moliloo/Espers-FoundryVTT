@@ -31,7 +31,8 @@
                 "effects": "Effects",
                 "magicArts": "Magic Arts",
                 "notes": "Notes",
-                "equipment": "Equipment"
+                "equipment": "Equipment",
+                "inventory": "Inventory"
             },
             "rarity": {
                 "common": "Common",

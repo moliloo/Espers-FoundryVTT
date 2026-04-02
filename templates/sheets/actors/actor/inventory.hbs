@@ -1,0 +1,47 @@
+<section
+    class='tab {{tabs.inventory.cssClass}} {{tabs.inventory.id}}'
+    data-tab='{{tabs.inventory.id}}'
+    data-group='{{tabs.inventory.group}}'
+>
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.weapon'
+        collection=@root.inventory.weapons
+        tagType='weapon'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.equipment'
+        collection=@root.inventory.equipment
+        tagType='equipment'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.consumable'
+        collection=@root.inventory.consumables
+        tagType='consumable'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.throwable'
+        collection=@root.inventory.throwable
+        tagType='throwable'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.artifacts'
+        collection=@root.inventory.artifacts
+        tagType='artifacts'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.gems'
+        collection=@root.inventory.gems
+        tagType='gems'
+    }}
+
+    {{> 'systems/espers/templates/sheets/global/items-section.hbs'
+        title='TYPES.Item.general'
+        collection=@root.inventory.general
+        tagType='general'
+    }}
+</section>
