@@ -3,5 +3,55 @@
     data-tab='{{tabs.magicArts.id}}'
     data-group='{{tabs.magicArts.group}}'
 >
-    <h1>Magic Arts</h1>
+  {{#each @root.inventory.magicArts as |magicArt|}}
+    <div class="magic-arts-item" data-item-uuid="{{magicArt.uuid}}">
+      <div class="header">
+        <h2>{{magicArt.name}}</h2>
+        <a data-tooltip="Edit" data-action="editDoc"><i class="fa-solid fa-edit"></i></a>
+      </div>
+
+      <details class="magic-arts-details">
+        <summary>{{localize 'ESPERS.Item.tabs.description'}}</summary>
+        <div class="details description">
+          {{{magicArt.system.description}}}
+        </div>
+      </details>
+
+      <details class="magic-arts-details">
+        <summary>{{localize 'ESPERS.Item.tabs.skills'}}</summary>
+        <div class="details">
+          {{#each magicArt.system.skills as |skill|}}
+            {{#if skill.selected}}
+            <div class="skill-item" data-tooltip="{{skill.description}}">
+              <h4>{{skill.name}}</h4>
+              <div class="skill-info">
+                <div class="info">
+                  <p>Level</p>
+                  <p>{{skill.level}}</p>
+                </div>
+                <div class="info">
+                  <p>Damage</p>
+                  <p>{{skill.damage}}</p>
+                </div>
+              </div>
+            </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      </details>
+
+      <details class="magic-arts-details">
+        <summary>{{localize 'ESPERS.Item.tabs.abilities'}}</summary>
+        <div class="details">
+          {{#each magicArt.system.abilities as |ability|}}
+            <div class="skill-item" data-tooltip="{{ability.description}}">
+              <h4>{{ability.name}}</h4>
+            </div>
+          {{/each}}
+        </div>
+      </details>
+    </div>
+
+  {{/each}}
+
 </section>

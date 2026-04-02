@@ -59,9 +59,15 @@
       }
     }
 
+    .tab.magicArts.active  {
+      display: flex;
+      gap: 20px;
+    }
+
     .tab.notes.active,
     .tab.inventory.active,
-    .tab.equipment.active  {
+    .tab.equipment.active,
+    .tab.magicArts.active  {
         overflow-y: auto;
     }
 }

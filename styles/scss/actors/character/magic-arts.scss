@@ -1,0 +1,68 @@
+@import '../../utils/color.scss';
+
+.application.espers.actor.character .tab.magicArts.active {
+  .magic-arts-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      h2 {
+        margin: 0;
+      }
+    }
+
+    .magic-arts-details {
+      padding: 10px;
+      background-color: light-dark($dark-10, $primary-yellow-10);
+      border: 1px solid light-dark($dark, $primary-yellow);
+      border-radius: 6px;
+      width: 100%;
+
+      summary {
+        cursor: pointer;
+      }
+
+      .details {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        &.description {
+          display: block;
+        }
+
+        .skill-item {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          border: 1px solid light-dark($dark, $primary-yellow);
+          padding: 6px;
+          border-radius: 6px;
+
+          h4 {
+            margin: 0;
+          }
+
+          .skill-info {
+            display: flex;
+            gap: 10px;
+
+            .info {
+              p {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

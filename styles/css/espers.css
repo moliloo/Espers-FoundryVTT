@@ -407,6 +407,59 @@
   gap: 16px;
 }
 
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .header h2 {
+  margin: 0;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details {
+  padding: 10px;
+  background-color: light-dark(rgba(52, 52, 52, 0.062745098), rgba(217, 171, 66, 0.062745098));
+  border: 1px solid light-dark(#222, #d9ab42);
+  border-radius: 6px;
+  width: 100%;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details summary {
+  cursor: pointer;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details .details {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details .details.description {
+  display: block;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details .details .skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid light-dark(#222, #d9ab42);
+  padding: 6px;
+  border-radius: 6px;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details .details .skill-item h4 {
+  margin: 0;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details .details .skill-item .skill-info {
+  display: flex;
+  gap: 10px;
+}
+.application.espers.actor.character .tab.magicArts.active .magic-arts-item .magic-arts-details .details .skill-item .skill-info .info p {
+  margin: 0;
+}
+
 .theme-dark .application.sheet.espers .tab.equipment.active .equipped-section {
   background-image: url("../../assets/images/background/dark-parchment.png");
   background-repeat: no-repeat;
@@ -453,9 +506,14 @@
 .application.espers.actor.character .tab.equipment.active .sheet-section .item {
   padding-top: 20px;
 }
+.application.espers.actor.character .tab.magicArts.active {
+  display: flex;
+  gap: 20px;
+}
 .application.espers.actor.character .tab.notes.active,
 .application.espers.actor.character .tab.inventory.active,
-.application.espers.actor.character .tab.equipment.active {
+.application.espers.actor.character .tab.equipment.active,
+.application.espers.actor.character .tab.magicArts.active {
   overflow-y: auto;
 }
 

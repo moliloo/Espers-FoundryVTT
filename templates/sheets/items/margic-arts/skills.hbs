@@ -46,6 +46,17 @@
                         </div>
                     </div>
 
+                    {{formGroup
+                        @root.fields.skills.element.fields.selected
+                        name=(concat 'system.skills.' id ".selected")
+                        value=skill.selected
+                        enriched=skill.selected
+                        label='Selected'
+                        toggled=true
+                        compact=true
+                        classes='slim'
+                    }}
+
                     <button data-action="deleteSkill" data-id="{{id}}">
                         Delete
                     </button>

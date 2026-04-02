@@ -27,6 +27,7 @@ export default class EspersMagicArts extends EspersItemBase {
                 damage: new fields.StringField({ required: true, blank: true, initial: '' }),
                 level: new fields.NumberField({ required: true, integer: false, initial: 1 }),
                 rankType: new fields.StringField({ required: true, blank: true, initial: 'novice' }),
+                selected: new fields.BooleanField({ initial: false }),
             })
         );
 
