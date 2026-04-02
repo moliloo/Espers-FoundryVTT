@@ -2,6 +2,7 @@ import { espers } from '../../helpers/config.mjs';
 import { getDocFromElement } from '../../helpers/utils.mjs';
 import EspersCharSetup from '../../setup/char-setup.mjs';
 import EspersCharLevelup from '../../setup/char-level-up.mjs';
+import { getStandardDeck } from "../../helpers/card-generator.mjs";
 
 const { ActorSheetV2 } = foundry.applications.sheets;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -78,6 +79,7 @@ export default class EspersCharacterSheet extends HandlebarsApplicationMixin(Act
             fields: this.document.system.schema.fields,
             effects: this.prepareActiveEffectCategories(this.actor.effects),
             tabs: this.prepareTabs(this.constructor.TABS).sheet,
+            standardDeck: getStandardDeck(),
             inventory: {
                 artifacts: this.document.itemTypes.artifacts.sort((a, b) => a.sort - b.sort),
                 base: this.document.itemTypes.base.sort((a, b) => a.sort - b.sort),

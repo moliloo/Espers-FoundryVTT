@@ -13,4 +13,8 @@ export async function registerHandelbarHelpers() {
             return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
         }
     });
+
+    Handlebars.registerHelper("isInFate", function(card, fateCards) {
+      return fateCards.some(f => f.id === card.id );
+    });
 }

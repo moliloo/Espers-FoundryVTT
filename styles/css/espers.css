@@ -342,6 +342,19 @@
 }
 .application.espers.actor.character .header .second-row .char-info .cards .nipe p {
   margin: 0;
+  text-transform: uppercase;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe.clubs p.selected {
+  color: #3D8882;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe.diamonds p.selected {
+  color: #4EB0E6;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe.hearts p.selected {
+  color: #e54e4e;
+}
+.application.espers.actor.character .header .second-row .char-info .cards .nipe.spades p.selected {
+  color: #7A6BB4;
 }
 .application.espers.actor.character .header .second-row .char-info .cards .nipe .icon {
   height: 20px;

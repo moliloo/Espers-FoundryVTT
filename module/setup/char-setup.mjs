@@ -1,5 +1,5 @@
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
-import { getStandardDeck, shuffle } from "../helpers/card-generator.mjs";
+import { getStandardDeck, shuffle, suitOrder, rankOrder } from "../helpers/card-generator.mjs";
 
 export default class EspersCharSetup extends HandlebarsApplicationMixin(ApplicationV2) {
     constructor(character) {
@@ -16,7 +16,8 @@ export default class EspersCharSetup extends HandlebarsApplicationMixin(Applicat
             },
             magicArts: {},
             weapon: {},
-            fate: []
+            fate: [],
+            aether: [],
         }
 
         this._dragDrop = this._createDragDropHandlers();
@@ -68,11 +69,32 @@ export default class EspersCharSetup extends HandlebarsApplicationMixin(Applicat
     }
 
     static async generateFate(amount = 20) {
-        let deck = getStandardDeck();
-        shuffle(deck)
-        let fate = deck.slice(0,20);
+      let deck = getStandardDeck();
+      shuffle(deck)
+      let fate = deck.slice(0,20);
+      
+      this.setup.fate = fate;
+      this.setup.aether = this.generateAether(fate, deck).sort((a, b) => {
+        let diff = suitOrder[a.suit] - suitOrder[b.suit];
 
-        this.setup.fate = fate
+        if (diff !== 0) return diff;
+
+        return rankOrder[a.rank] - rankOrder[b.rank];
+      });
+    }
+
+    generateAether(fateDeck, standardDeck) {
+      const aether = [];
+
+      standardDeck.forEach(card => {
+        let fateCard = fateDeck.find(fateCard => fateCard.id === card.id);
+
+        if(fateCard) return;
+
+        aether.push(card)
+      });
+
+      return aether;
     }
 
     _createDragDropHandlers() {
@@ -122,6 +144,7 @@ export default class EspersCharSetup extends HandlebarsApplicationMixin(Applicat
         button.disabled = true;
 
         this.character.update({
+            "system.cards.aether": this.setup.aether,
             "system.cards.fate": this.setup.fate,
             "system.attributes.strength": this.setup.stat.strength,
             "system.attributes.intelligence": this.setup.stat.intelligence,

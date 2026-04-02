@@ -60,68 +60,36 @@
             <div class="cards">
                 <h4 class="divider" style="">Fate</h4>
                 <div class="nipe clubs">
-                    <div class="icon clubs"></div>
-                    <p>A</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5</p>
-                    <p>6</p>
-                    <p>7</p>
-                    <p>8</p>
-                    <p>9</p>
-                    <p>10</p>
-                    <p>J</p>
-                    <p>Q</p>
-                    <p>K</p>
+                  <div class="icon clubs"></div>
+                  {{#each standardDeck as |card|}}
+                    {{#if (eq card.suit 'clubs')}}
+                      <p class="{{#if (isInFate card ../actor.system.cards.fate)}}selected{{/if}}">{{ card.firstChar }}</p>
+                    {{/if}}
+                  {{/each}}
                 </div>
                 <div class="nipe diamonds">
-                    <div class="icon diamonds"></div>
-                    <p>A</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5</p>
-                    <p>6</p>
-                    <p>7</p>
-                    <p>8</p>
-                    <p>9</p>
-                    <p>10</p>
-                    <p>J</p>
-                    <p>Q</p>
-                    <p>K</p>
+                  <div class="icon diamonds"></div>
+                  {{#each standardDeck as |card|}}
+                    {{#if (eq card.suit 'diamonds')}}
+                      <p class="{{#if (isInFate card ../actor.system.cards.fate)}}selected{{/if}}">{{ card.firstChar }}</p>
+                    {{/if}}
+                  {{/each}}
                 </div>
                 <div class="nipe hearts">
-                    <div class="icon hearts"></div>
-                    <p>A</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5</p>
-                    <p>6</p>
-                    <p>7</p>
-                    <p>8</p>
-                    <p>9</p>
-                    <p>10</p>
-                    <p>J</p>
-                    <p>Q</p>
-                    <p>K</p>
+                  <div class="icon hearts"></div>
+                  {{#each standardDeck as |card|}}
+                    {{#if (eq card.suit 'hearts')}}
+                      <p class="{{#if (isInFate card ../actor.system.cards.fate)}}selected{{/if}}">{{ card.firstChar }}</p>
+                    {{/if}}
+                  {{/each}}
                 </div>
                 <div class="nipe spades">
-                    <div class="icon spades"></div>
-                    <p>A</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                    <p>5</p>
-                    <p>6</p>
-                    <p>7</p>
-                    <p>8</p>
-                    <p>9</p>
-                    <p>10</p>
-                    <p>J</p>
-                    <p>Q</p>
-                    <p>K</p>
+                  <div class="icon spades"></div>
+                  {{#each standardDeck as |card|}}
+                    {{#if (eq card.suit 'spades')}}
+                      <p class="{{#if (isInFate card ../actor.system.cards.fate)}}selected{{/if}}">{{ card.firstChar }}</p>
+                    {{/if}}
+                  {{/each}}
                 </div>
             </div>
         </div>

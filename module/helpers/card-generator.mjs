@@ -15,6 +15,10 @@ const RANKS = [
   { key: 'king', value: 10 }
 ];
 
+// consts to sort aether deck
+export const rankOrder = { "ace": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "jack": 11, "queen": 12, "king": 13 };
+export const suitOrder = { "clubs": 1, "diamonds": 2, "hearts": 3, "spades": 4 };
+
 export function getStandardDeck() {
   const deck = [];
 
@@ -24,6 +28,7 @@ export function getStandardDeck() {
         id: `${rank.key}-${suit}`,
         suit,
         rank: rank.key,
+        firstChar: rank.key[0],
         value: rank.value,
         label: `${rank.key} of ${suit}`,
         img: `systems/espers/assets/cards/card-${rank.key}-${suit}.svg`

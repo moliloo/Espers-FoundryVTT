@@ -250,22 +250,23 @@
 
                         p {
                             margin: 0;
+                            text-transform: uppercase;
                         }
 
-                        &.clubs {
-                            
+                        &.clubs p.selected {
+                            color: $green;
                         }
 
-                        &.diamonds {
-                            
+                        &.diamonds p.selected {
+                            color: $blue;
                         }
 
-                        &.hearts {
-                            
+                        &.hearts p.selected {
+                            color: $red;
                         }
 
-                        &.spades {
-                            
+                        &.spades p.selected {
+                            color: $purple;
                         }
 
                         .icon {
